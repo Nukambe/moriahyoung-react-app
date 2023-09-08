@@ -1,0 +1,17 @@
+header {
+    background-color: aliceblue;
+    background-image: url(/src/assets/Blurred_bg.png);
+    border-bottom: 0.1em solid lightgray;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 152px;
+}
+
+.avatar {
+    border: 0.1em solid lightgray;
+    border-radius: 5em;
+    transform: translateY(77px);
+}
