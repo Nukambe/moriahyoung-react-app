@@ -16,7 +16,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/portfolio" element={<Portfolio />} />
+        <Route exact path="/oncamera" element={<Portfolio />} />
+        <Route exact path="/voice" element={<Portfolio />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
