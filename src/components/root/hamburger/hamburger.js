@@ -11,7 +11,7 @@ export default function Hamburger() {
             >
                 {`menu is ${menu}`}
             </button>
-            {menu ? <Navigation /> : null}
+            {menu ? <Navigation menu={menu} setMenu={setMenu} /> : null}
         </>
     );
 }
