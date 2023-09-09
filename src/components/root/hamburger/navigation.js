@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import MyNavLink from './myNavLink';
 
 const navLinks = [
     { path: '/', text: 'HOME' },
@@ -8,14 +8,6 @@ const navLinks = [
     { path: '/voice', text: 'VOICE' },
     { path: '/contact', text: 'CONTACT' }
 ];
-
-const navLinkStyle = {
-    fontWeight: 'bold',
-    fontSize: '2em',
-    padding: '0.5em 0',
-    textAlign: 'center',
-    width: '100%'
-}
 
 export default function Navigation({ menu, setMenu }) {
     const [visibility, setVisibility] = useState(false);
@@ -42,7 +34,7 @@ export default function Navigation({ menu, setMenu }) {
                 alignItems: 'center',
                 backgroundColor: 'black',
                 opacity: visibility ? '80%' : '0%',
-                transition: 'opacity 0.1s',
+                transition: 'opacity 0.1s'
             }}
         >
             <nav
@@ -55,13 +47,7 @@ export default function Navigation({ menu, setMenu }) {
                 }}
             >
                 {navLinks.map((link, index) => (
-                    <NavLink
-                        key={index}
-                        to={link['path']}
-                        style={navLinkStyle}
-                    >
-                        {link['text']}
-                    </NavLink>
+                    <MyNavLink link={link} key={index} />
                 ))}
             </nav>
         </div>
