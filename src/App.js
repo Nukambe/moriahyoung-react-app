@@ -13,14 +13,16 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/oncamera" element={<Portfolio />} />
-        <Route exact path="/voice" element={<Portfolio />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/oncamera" element={<Portfolio />} />
+          <Route exact path="/voice" element={<Portfolio />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );
