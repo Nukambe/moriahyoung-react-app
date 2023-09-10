@@ -11,12 +11,13 @@ export default function Home() {
 
     return (
         <>
-            <h1 style={{
+            {/* <h1 style={{
                 textAlign: 'center',
                 margin: '0.2em 0'
-            }}>Moriah L Young</h1>
+            }}>Moriah L Young</h1> */}
             <h2 style={{
-                textAlign: 'center'
+                textAlign: 'center',
+                marginTop: '2em'
             }}>Voice Actor + On Camera Talent</h2>
             <img 
                 src={headshot} alt='headshot'
