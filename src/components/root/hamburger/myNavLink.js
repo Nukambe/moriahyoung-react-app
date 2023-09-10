@@ -24,7 +24,8 @@ export default function MyNavLink({ link }) {
             padding: '0.5em 2em',
             textAlign: 'center',
             backgroundColor: pressed ? 'rgb(145, 23, 60)' : hover ? 'rgb(230, 35, 93)' : null,
-            fontFamily: 'cinzel'
+            fontFamily: 'cinzel',
+            opacity: '100%'
         }}
         >
             {link['text']}

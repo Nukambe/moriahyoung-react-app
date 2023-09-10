@@ -12,7 +12,8 @@ export default function Home() {
     return (
         <>
             <h1 style={{
-                textAlign: 'center'
+                textAlign: 'center',
+                margin: '0.2em 0'
             }}>Moriah L Young</h1>
             <h2 style={{
                 textAlign: 'center'
@@ -25,7 +26,11 @@ export default function Home() {
                     margin: '0 auto'
                 }}
             />
-            <p>
+            <p style={{
+                width: '20em',
+                margin: '0 auto',
+                textAlign: 'justify'
+            }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <div style={{
@@ -36,8 +41,8 @@ export default function Home() {
             }}>
             {
                 socials.map((social, index) => (
-                    <a key={index} href={social['url']}>
-                        <i className={social['icon']} target={'_blank'} style={{
+                    <a key={index} href={social['url']} target='_blank' rel='noreferrer'>
+                        <i className={social['icon']} style={{
                             fontSize: '2em',
                             color: 'black'
                         }}></i>

@@ -33,8 +33,9 @@ export default function Navigation({ menu, setMenu }) {
                 display: 'flex',
                 alignItems: 'center',
                 backgroundColor: 'black',
-                opacity: visibility ? '80%' : '0%',
-                transition: 'opacity 0.1s'
+                opacity: visibility ? '95%' : '0%',
+                transition: 'opacity 0.1s',
+                zIndex: '1'
             }}
         >
             <nav
@@ -43,7 +44,8 @@ export default function Navigation({ menu, setMenu }) {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    color: 'white'
+                    color: 'white',
+                    opacity: '100%'
                 }}
             >
                 {navLinks.map((link, index) => (
