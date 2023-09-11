@@ -1,15 +1,20 @@
+import SocialLinks from '../socials/socials'
+
 export default function Footer() {
   return (
-    <footer>
+    <footer style={{
+      marginTop: 'auto',
+      marginBottom: '0.2em'
+    }}>
+      <SocialLinks fontSize='1.2em' color='gray' />
       <p
         style={{
-          position: "absolute",
-          bottom: "0",
           textAlign: "center",
           margin: "0",
           width: "100%",
+          color: 'gray'
         }}
-      ></p>
+      >© 2023 Moriah Young</p>
     </footer>
   );
 }
