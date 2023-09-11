@@ -29,13 +29,13 @@ export default function Navigation({ menu, setMenu }) {
                 position: 'absolute',
                 top: '0',
                 width: '100%',
-                height: '100%',
+                height: '100vh',
                 display: 'flex',
                 alignItems: 'center',
                 backgroundColor: 'black',
                 opacity: visibility ? '95%' : '0%',
                 transition: 'opacity 0.1s',
-                zIndex: '1'
+                zIndex: '3'
             }}
         >
             <nav

@@ -14,7 +14,6 @@ function App() {
   return (
     <>
       <Header />
-      <main>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
@@ -23,7 +22,6 @@ function App() {
           <Route exact path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
       <Footer />
     </>
   );
