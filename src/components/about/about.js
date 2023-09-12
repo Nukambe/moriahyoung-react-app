@@ -29,10 +29,8 @@ export default function About() {
         style={{
           display: "flex",
           height: "7em",
-          margin: "2em auto 0",
+          margin: "1em auto",
           alignItems: "center",
-          position: "sticky",
-          top: "1em",
         }}
       >
         <h2>Moriah</h2>
@@ -42,11 +40,19 @@ export default function About() {
           style={{
             width: "7em",
             borderRadius: "5em",
+            boxShadow: '0em 0em 0.5em gray',
             margin: "0 1em",
           }}
         />
         <h2>Who?</h2>
       </div>
+      <p style={{
+        width: '80%',
+        textAlign: 'justify',
+        margin: '0 auto'
+      }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
       <div>
         {abouts.map((about, index) => (
           <AboutSection key={index} info={about} index={index} />

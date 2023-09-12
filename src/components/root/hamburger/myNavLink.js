@@ -18,7 +18,7 @@ export default function MyNavLink({ link }) {
         onMouseUp={() => setPressed(false)}
         onTouchEnd={() => setPressed(false)}
         style={{
-            color: 'white',
+            color: hover ? 'white' : 'white',
             fontWeight: 'bold',
             fontSize: '2em',
             padding: '0.5em 2em',

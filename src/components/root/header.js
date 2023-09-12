@@ -11,16 +11,19 @@ const headings = [
     {path: '/contact', heading: 'CONTACT ME', size: '2em'}
 ];
 
+const headerBackgroundColor = 'rgb(230, 35, 93)';
+
 export default function Header() {
     return (
         <header style={{
+            backgroundColor: headerBackgroundColor,
             display: 'flex',
             alignItems: 'center',
             position: 'sticky',
             top: '0',
             zIndex: '2',
         }}>
-            <Hamburger />
+            <Hamburger bgColor={headerBackgroundColor} />
             <Routes>
                 {headings.map((heading, index) => (
                     <Route 
@@ -28,6 +31,7 @@ export default function Header() {
                         path={heading['path']} 
                         element={
                             <h1 style={{
+                                color: 'white',
                                 margin: '0.5em auto',
                                 textAlign: 'center',
                                 fontSize: heading['size'],

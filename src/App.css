@@ -17,6 +17,10 @@ a.active {
   color: rgb(230, 35, 93) !important;
 }
 
+a.active:hover {
+  color: white !important;
+}
+
 #gallery::-webkit-scrollbar {
   display: none;
 }

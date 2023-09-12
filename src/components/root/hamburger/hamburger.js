@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navigation from "./navigation";
 
-export default function Hamburger() {
+export default function Hamburger({ bgColor }) {
   const [menu, setMenu] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ export default function Hamburger() {
             zIndex: "4",
             margin: '0.5em',
             fontSize: "2em",
-            color: menu ? "white" : "black",
+            color: menu ? "rgb(230, 35, 93)" : "white",
           }}
         ></i>
       {menu ? <Navigation menu={menu} setMenu={setMenu} /> : null}

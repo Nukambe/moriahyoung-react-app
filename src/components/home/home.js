@@ -1,17 +1,15 @@
 import headshot from "../../assets/content/Moriah_Young-_0534.jpg";
-import SocialLinks from "../socials/socials";
+// import SocialLinks from "../socials/socials";
 
 export default function Home() {
   return (
-    <>
-      {/* <h1 style={{
-                textAlign: 'center',
-                margin: '0.2em 0'
-            }}>Moriah L Young</h1> */}
+    <div style={{
+      width: '80%',
+      margin: '0 auto'
+    }}>
       <h2
         style={{
           textAlign: "center",
-          marginTop: "2em",
         }}
       >
         Voice Actor + On Camera Talent
@@ -22,12 +20,11 @@ export default function Home() {
         style={{
           display: "block",
           width: "10em",
-          margin: "0 auto",
+          margin: "0 auto 2em",
         }}
       />
       <p
         style={{
-          width: "20em",
           margin: "0 auto",
           textAlign: "justify",
         }}
@@ -40,7 +37,6 @@ export default function Home() {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
-      <SocialLinks />
-    </>
+    </div>
   );
 }

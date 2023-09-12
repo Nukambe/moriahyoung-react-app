@@ -3,9 +3,11 @@ export default function AboutSection({ info, index }) {
     <div
       style={{
         display: "flex",
-        margin: "1em",
+        flexDirection: 'column',
+        margin: "3em 3em",
         justifyContent: "space-between",
-        flexDirection: index % 2 === 0 ? "row-reverse" : "row",
+        alignItems: 'center',
+        borderTop: '0.1em solid lightgray',
       }}
     >
       <img
@@ -14,14 +16,15 @@ export default function AboutSection({ info, index }) {
         style={{
           width: "auto",
           height: "auto",
-          maxWidth: "5em",
-          maxHeight: "5em",
+          maxWidth: "100%",
+          maxHeight: "100%",
+          margin: '2em 0 1em',
+          boxShadow: '0em -0em 0.5em gray'
         }}
       />
       <p
         style={{
           textAlign: "justify",
-          width: "70%",
           margin: "0",
         }}
       >
