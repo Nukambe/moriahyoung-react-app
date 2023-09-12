@@ -60,7 +60,17 @@ export default function Voice() {
           margin: "0 auto",
         }}
       >
-        <img src={studio} alt="studio" />
+        <img
+          src={studio}
+          alt="studio"
+          style={{
+            borderTop: '0.1em solid darkred',
+            borderRight: '0.1em solid darkred',
+            borderLeft: '0.1em solid lightblue',
+            borderBottom: '0.1em solid lightblue',
+            boxShadow: '1em -1em 0 lightblue, -1em 0.5em 0 darkred'
+          }}
+        />
         <p
           style={{
             textAlign: "justify",
