@@ -7,7 +7,7 @@ export default function AboutSection({ info, index }) {
         margin: "3em 3em",
         justifyContent: "space-between",
         alignItems: 'center',
-        borderTop: '0.1em solid lightgray',
+        borderTop: '0.1em solid rgb(230, 35, 93)',
       }}
     >
       <img
