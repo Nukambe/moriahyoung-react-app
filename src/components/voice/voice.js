@@ -1,8 +1,10 @@
 import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
+import studio from "../../assets/content/mystudio.jpg";
+// import aud from "../../assets/audio"
 
 const demos = [
-  { title: "Commercial", icon: "", url: "" },
-  { title: "Narration", icon: "", url: "" },
+  { title: "Commercial", src: "Commercial_Demo_Moriah_Young.mp3", link: 'https://soundcloud.com/moriah-young-463207945/commercial-demo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
+  { title: "Narration", src: "Narration_Demo_Moriah_Young.mp3", link: 'https://soundcloud.com/moriah-young-463207945/narration-demo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
 ];
 
 export default function Voice() {
@@ -34,13 +36,12 @@ export default function Voice() {
             justifyContent: "center",
           }}
         >
-          <i
-            className="fi fi-rr-play"
-            style={{
-              marginRight: "1em",
-            }}
-          ></i>
-          <p>{demo["title"]} audio...</p>
+          <figure>
+            <figcaption style={{ paddingLeft: '2em'}}>{demo['title']}</figcaption>
+            <audio controls src={`audio/${demo['src']}`}>
+              <a href={demo['link']}>Audio pla</a>
+            </audio>
+          </figure>
         </div>
       ))}
       <h2
@@ -53,16 +54,16 @@ export default function Voice() {
       <div
         style={{
           display: "flex",
+          flexDirection: 'column',
           justifyContent: "space-between",
           width: "16em",
           margin: "0 auto",
         }}
       >
-        <img src="" alt="studio" />
+        <img src={studio} alt="studio" />
         <p
           style={{
             textAlign: "justify",
-            width: "75%",
           }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

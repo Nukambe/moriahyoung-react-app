@@ -3,8 +3,8 @@ import Gallery from "./gallery/gallery";
 const reels = [
   { title: "Reel 1", src: "https://player.vimeo.com/video/849975538?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" },
   { title: "Reel 2", src: "https://player.vimeo.com/video/849974706?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" },
-  { title: "Reel 3", url: "" },
-  { title: "Reel 4", url: "" },
+  { title: "Reel 3", src: "" },
+  { title: "Reel 4", src: "" },
 ];
 
 export default function OnCamera() {
