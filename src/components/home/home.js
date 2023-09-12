@@ -3,10 +3,12 @@ import headshot from "../../assets/content/Moriah_Young-_0534.jpg";
 
 export default function Home() {
   return (
-    <div style={{
-      width: '80%',
-      margin: '0 auto'
-    }}>
+    <div
+      style={{
+        width: "80%",
+        margin: "0 auto",
+      }}
+    >
       <h2
         style={{
           textAlign: "center",
@@ -20,7 +22,7 @@ export default function Home() {
         style={{
           display: "block",
           width: "10em",
-          margin: "0 auto 2em",
+          margin: "0 auto 1em",
         }}
       />
       <p

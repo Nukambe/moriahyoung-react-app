@@ -24,3 +24,7 @@ a.active:hover {
 #gallery::-webkit-scrollbar {
   display: none;
 }
+
+#gallery img {
+  border: 1px solid red;
+}

@@ -1,4 +1,4 @@
-import { useState, componentDidMount, componentWillUnmount } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import image0463 from "../../../assets/content/Moriah_Young-_0463.jpg";
 import image0468 from "../../../assets/content/Moriah_Young-_0468.jpg";
 import image0534 from "../../../assets/content/Moriah_Young-_0534.jpg";
@@ -9,34 +9,30 @@ const images = [image0463, image0468, image0534, image0572, image0615];
 
 export default function Gallery() {
   const [galleryScroll, setGalleryScroll] = useState(0);
+  const gallery = useRef(null);
 
   function handleScroll(event) {
-    console.log(event.deltaX);
+    event.preventDefault();
+    setGalleryScroll((prev) => prev + event.deltaY);
   }
 
-  //   componentDidMount() {
-  //     document.getElementById('gallery').addEventListener('scroll', handleScroll);
-  //   };
-
-  //   componentWillUnmount() {
-  //     document.getElementById('gallery').removeEventListener('scroll', handleScroll);
-  //   };
+  useEffect(() => {
+    if (gallery.current) {
+      gallery.current.scrollLeft = galleryScroll;
+    }
+  }, [galleryScroll]);
 
   return (
-    <div
-      className="gallery-wrapper"
-      style={{
-        paddingTop: "5em",
-      }}
-    >
+    <div className="gallery-wrapper">
       <div
-        onScroll={(e) => handleScroll(e)}
         id="gallery"
+        onScroll={(e) => handleScroll(e)}
+        onWheel={(e) => handleScroll(e)}
         style={{
           display: "flex",
           columnGap: "1em",
-          padding: "1em 0",
-          overflow: "scroll",
+          width: "100%",
+          overflowX: "scroll",
         }}
       >
         {images.map((image, index) => (
@@ -45,7 +41,7 @@ export default function Gallery() {
             src={image}
             alt="gallery headshot"
             style={{
-              width: "12em",
+              width: "80%",
             }}
           />
         ))}
