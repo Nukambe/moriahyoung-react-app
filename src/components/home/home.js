@@ -20,7 +20,6 @@ export default function Home() {
       >
         Voice Actor + On Camera Talent
       </h2>
-      <p>Screen size is {mediaQueries.phone ? 'phone' : mediaQueries.tablet ? 'tablet' : mediaQueries.desktop ? 'desktop' : mediaQueries.tv ? 'tv' : null}</p>
       <img
         src={headshot}
         alt="headshot"

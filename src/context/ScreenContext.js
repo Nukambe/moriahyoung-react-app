@@ -11,6 +11,7 @@ export const ScreenProvider = props => {
         tv: useMediaQuery({ minWidth: 1921 }),
         isPortrait: useMediaQuery({ orientation: 'portrait' })
     };
+    mediaQueries.mobile = mediaQueries.phone || mediaQueries.tablet;
 
     return (
         <ScreenContext.Provider value={mediaQueries}>

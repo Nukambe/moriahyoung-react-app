@@ -17,11 +17,11 @@ a, a:visited {
   text-decoration: none;
 }
 
-a.active {
+.mobile-nav.active {
   color: rgb(230, 35, 93) !important;
 }
 
-a.active:hover {
+.mobile-nav.active:hover {
   color: white !important;
 }
 
