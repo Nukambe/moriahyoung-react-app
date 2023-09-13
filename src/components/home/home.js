@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { ScreenContext } from "../../context/ScreenContext";
 import headshot from "../../assets/content/Moriah_Young-_0534.jpg";
 // import SocialLinks from "../socials/socials";
 
 export default function Home() {
+  const mediaQueries = useContext(ScreenContext);
+
   return (
     <div
       style={{
@@ -16,6 +20,7 @@ export default function Home() {
       >
         Voice Actor + On Camera Talent
       </h2>
+      <p>Screen size is {mediaQueries.phone ? 'phone' : mediaQueries.tablet ? 'tablet' : mediaQueries.desktop ? 'desktop' : mediaQueries.tv ? 'tv' : null}</p>
       <img
         src={headshot}
         alt="headshot"

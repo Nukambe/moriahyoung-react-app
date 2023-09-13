@@ -9,6 +9,10 @@
   min-height: 100vh;
 }
 
+/* body {
+  background-color: #121212;
+} */
+
 a, a:visited {
   text-decoration: none;
 }
@@ -26,5 +30,5 @@ a.active:hover {
 }
 
 #gallery img {
-  border: 1px solid red;
+  border: 1px solid rgb(230, 35, 93);
 }

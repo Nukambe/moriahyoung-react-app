@@ -33,7 +33,7 @@ export default function About() {
           alignItems: "center",
         }}
       >
-        <h2>Moriah</h2>
+        <h2 style={{ width: '3.5em', textAlign: 'center'}}>Moriah</h2>
         <img
           src={avatar}
           alt=""
@@ -44,7 +44,7 @@ export default function About() {
             margin: "0 1em",
           }}
         />
-        <h2>Who?</h2>
+        <h2 style={{ width: '3.5em', textAlign: 'center'}}>Who?</h2>
       </div>
       <p style={{
         width: '80%',

@@ -15,7 +15,7 @@ export default function Navigation({ menu, setMenu }) {
     useEffect(() => {
         const visibilityTimer = setTimeout(() => {
             setVisibility(true);
-        }, 100);
+        }, 0);
 
         return () => {
             clearTimeout(visibilityTimer);

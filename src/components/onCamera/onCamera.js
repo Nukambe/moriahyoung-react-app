@@ -24,7 +24,7 @@ export default function OnCamera() {
             <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
               <iframe
                 src={reel['src']}
-                frameborder="0"
+                frameBorder="0"
                 allow="fullscreen; picture-in-picture"
                 style={{
                   position: 'absolute',

@@ -1,6 +1,5 @@
 import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
 import studio from "../../assets/content/mystudio.jpg";
-// import aud from "../../assets/audio"
 
 const demos = [
   { title: "Commercial", src: "Commercial_Demo_Moriah_Young.mp3", link: 'https://soundcloud.com/moriah-young-463207945/commercial-demo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
@@ -14,10 +13,11 @@ export default function Voice() {
         src={avatar}
         alt="avatar"
         style={{
-          width: "4em",
+          width: "8em",
           borderRadius: "5em",
+          boxShadow: '0.2em 0.2em 1em gray',
           display: "block",
-          margin: "3em auto 0",
+          margin: "2em auto 0",
         }}
       />
       <h2
