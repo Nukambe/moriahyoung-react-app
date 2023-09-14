@@ -15,8 +15,10 @@ export default function NavBar() {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
+                alignItems: 'center',
                 height: '100%',
-                rowGap: '4em'
+                rowGap: '4em',
+                width: '4em'
             }}
         >
             {navigationLinks.map((nav, index) => (

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
+import Footer from "../root/footer";
 import headshot from "../../assets/content/Moriah_Young-_0534.jpg";
-// import SocialLinks from "../socials/socials";
 
 export default function Home() {
   const mediaQueries = useContext(ScreenContext);
@@ -9,7 +9,9 @@ export default function Home() {
   return (
     <div
       style={{
-        width: "80%",
+        display: 'flex',
+        flexDirection: 'column',
+        width: mediaQueries.phone ? "80%" : mediaQueries.tablet ? '70%' : '60%',
         margin: "0 auto",
       }}
     >
@@ -43,6 +45,7 @@ export default function Home() {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
+      {!mediaQueries.mobile && <Footer />}
     </div>
   );
 }

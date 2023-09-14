@@ -22,12 +22,12 @@ export default function Header() {
     return (
         <header style={{
             backgroundColor: headerBackgroundColor,
+            boxShadow: '0.1em 0em 0.2em ',
             display: 'flex',
             flexDirection: mediaQueries.mobile ? 'row' : 'column',
-            width: mediaQueries.mobile ? '' : '5em',
             height: mediaQueries.mobile ? '' : '100vh',
             alignItems: 'center',
-            position: mediaQueries.mobile ? 'sticky' : 'fixed',
+            position: 'sticky',
             top: '0',
             zIndex: '2',
         }}>

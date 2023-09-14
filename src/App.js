@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { ScreenContext } from "./context/ScreenContext";
 //-------------------------------------------------------------
 import Header from "./components/root/header";
 import Footer from "./components/root/footer";
@@ -12,9 +14,14 @@ import NotFound from "./components/not-found/notFound";
 import "./App.css";
 
 function App() {
+  const mediaQueries = useContext(ScreenContext);
 
   return (
-    <>
+    <div style={{
+      display: 'flex',
+      flexDirection: mediaQueries.mobile ? 'column' : 'row',
+      minHeight: '100vh'
+    }}>
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -24,8 +31,8 @@ function App() {
         <Route exact path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
-    </>
+      {mediaQueries.mobile && <Footer />}
+    </div>
   );
 }
 
