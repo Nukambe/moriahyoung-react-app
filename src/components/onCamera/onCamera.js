@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ScreenContext } from "../../context/ScreenContext";
+import Footer from "../root/footer";
 import Gallery from "./gallery/gallery";
 
 const reels = [
@@ -8,8 +11,10 @@ const reels = [
 ];
 
 export default function OnCamera() {
+  const mediaQueries = useContext(ScreenContext);
+  
   return (
-    <>
+    <div>
       <Gallery />
       <div
         style={{
@@ -40,6 +45,7 @@ export default function OnCamera() {
           </div>
         ))}
       </div>
-    </>
+      {!mediaQueries.mobile && <Footer />}
+    </div>
   );
 }

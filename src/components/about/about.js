@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { ScreenContext } from '../../context/ScreenContext';
+import Footer from '../root/footer';
 import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
 import AboutSection from "./aboutSection";
 
@@ -23,14 +26,22 @@ const abouts = [
 ];
 
 export default function About() {
+  const mediaQueries = useContext(ScreenContext);
+
   return (
-    <>
+    <div style={{
+      width: mediaQueries.mobile ? '90%' : '70%',
+      margin: '0 auto',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
       <div
         style={{
           display: "flex",
           height: "7em",
           margin: "1em auto",
           alignItems: "center",
+          width: 'fit-content'
         }}
       >
         <h2 style={{ width: '3.5em', textAlign: 'center'}}>Moriah</h2>
@@ -58,6 +69,7 @@ export default function About() {
           <AboutSection key={index} info={about} index={index} />
         ))}
       </div>
-    </>
+      {!mediaQueries.mobile && <Footer />}
+    </div>
   );
 }

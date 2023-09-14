@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
+import { ScreenContext } from "../../context/ScreenContext";
+import Footer from "../root/footer";
 import emailjs from '@emailjs/browser';
 import SocialLinks from "../socials/socials";
 
@@ -22,6 +24,8 @@ const inputStyle = {
 
 
 export default function Contact() {
+  const mediaQueries = useContext(ScreenContext);
+
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -52,9 +56,13 @@ export default function Contact() {
       style={{
         paddingTop: "1em",
         width: "80%",
+        maxWidth: '600px',
         margin: "0 auto",
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
+      {!mediaQueries.mobile && <div style={{ marginTop: '3em' }}></div>}
       <SocialLinks />
       <h2 style={{
         textAlign: 'center'
@@ -110,6 +118,7 @@ export default function Contact() {
             backgroundColor: 'white'
           }}>Submit</button>
       </form>
+      {!mediaQueries.mobile && <Footer />}
     </div>
   );
 }
