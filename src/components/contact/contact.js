@@ -1,8 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
 import Footer from "../root/footer";
 import emailjs from '@emailjs/browser';
 import SocialLinks from "../socials/socials";
+import validateForm from "./contactFormValidation";
+import ContactError from "./contactError";
 
 const divStyle = {
   display: "flex",
@@ -25,7 +27,13 @@ const inputStyle = {
 
 export default function Contact() {
   const mediaQueries = useContext(ScreenContext);
-
+  const [submittedForm, setSubmittedForm] = useState(false);
+  const [formError, setFormError] = useState({
+    name: false,
+    email: false,
+    inquiry: false,
+    ok: false
+  });
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -41,15 +49,25 @@ export default function Contact() {
   };
 
   function sendEmail() {
-    // emailjs.send('default_service', 'template_jflhs1h', contactForm, 'NJWYuO_Fm2CPh-uly')
-    //   .then(res => {
-    //     console.log(res.text);
-    //     resetContactForm();
-    //   }, err => {
-    //     console.log(err.text);
-    //   });
-    console.log('SEND EMAIL');
+    setSubmittedForm(true);
+    if (!formError.ok) {
+      return;
+    }
+    emailjs.send('default_service', 'template_jflhs1h', contactForm, 'NJWYuO_Fm2CPh-uly')
+      .then(res => {
+        console.log(res.text);
+        resetContactForm();
+        setSubmittedForm(false);
+        alert('Inquiry Sent!');
+      }, err => {
+        console.log(err.text);
+      });
   };
+
+  useEffect(() => {
+    if (!submittedForm) return;
+    setFormError(validateForm(contactForm));
+  }, [contactForm]);
 
   return (
     <div
@@ -81,6 +99,7 @@ export default function Contact() {
           <input id="name" value={contactForm.name} onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
             style={inputStyle}
           />
+          {(submittedForm && !formError.name) && <ContactError name='name' />}
         </div>
         <div style={divStyle}>
           <label htmlFor="email" style={labelStyle}>Email</label>
@@ -91,6 +110,7 @@ export default function Contact() {
             onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
             style={inputStyle}
           />
+          {(submittedForm && !formError.email) && <ContactError name='email' />}
         </div>
         <div style={divStyle}>
           <label htmlFor="inquiry" style={labelStyle}>Inquiry</label>
@@ -107,6 +127,7 @@ export default function Contact() {
               fontSize: '1em'
             }}
           />
+          {(submittedForm && !formError.inquiry) && <ContactError name='inquiry' />}
         </div>
         <button type="submit"
           style={{
