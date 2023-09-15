@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import Footer from "../root/footer";
 import emailjs from '@emailjs/browser';
 import SocialLinks from "../socials/socials";
@@ -21,11 +22,14 @@ const inputStyle = {
   border: '0.1em solid gray',
   borderRadius: '1em',
   paddingLeft: '1em',
-  fontSize: '1em'
+  fontSize: '1em',
 }
 
 
 export default function Contact() {
+  const theme = useContext(ThemeContext);
+  inputStyle.border = `0.15em solid ${theme.header}`;
+  // inputStyle.backgroundColor = theme.secondary;
   const mediaQueries = useContext(ScreenContext);
   const [submittedForm, setSubmittedForm] = useState(false);
   const [formError, setFormError] = useState({
@@ -97,7 +101,7 @@ export default function Contact() {
         <div style={divStyle}>
           <label htmlFor="name" style={labelStyle}>Name</label>
           <input id="name" value={contactForm.name} onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-            style={inputStyle}
+            style={{...inputStyle, border: (submittedForm && !formError.name) ? '0.15em solid red' : inputStyle.border}}
           />
           {(submittedForm && !formError.name) && <ContactError name='name' />}
         </div>
@@ -108,7 +112,7 @@ export default function Contact() {
             type="email"
             value={contactForm.email}
             onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-            style={inputStyle}
+            style={{...inputStyle, border: (submittedForm && !formError.email) ? '0.15em solid red' : inputStyle.border}}
           />
           {(submittedForm && !formError.email) && <ContactError name='email' />}
         </div>
@@ -121,7 +125,7 @@ export default function Contact() {
             rows="7"
             style={{
               resize: "none",
-              border: '0.1em solid gray',
+              border: (submittedForm && !formError.inquiry) ? '0.2em solid red' : `0.2em solid ${theme.header}`,
               borderRadius: '1em',
               padding: '1em 1em',
               fontSize: '1em'
@@ -134,9 +138,9 @@ export default function Contact() {
             marginTop: '1.5em',
             marginLeft: '0em',
             padding: '0.7em 2.5em',
-            border: '0.1em solid gray',
+            border: `0.1em solid ${theme.header}`,
             borderRadius: '1em',
-            backgroundColor: 'white'
+            backgroundColor: theme.secondary
           }}>Submit</button>
       </form>
       {!mediaQueries.mobile && <Footer />}

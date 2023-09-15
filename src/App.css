@@ -3,9 +3,24 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
+body {
+  background-color: #161B1F;
+}
+
 #root {
   min-width: 400px;
-  /* background-color: #161B1F; */
+  background-color: #161B1F;
+}
+
+h1,
+h2,
+h3,
+p,
+figcaption,
+label,
+button,
+input {
+  color: white;
 }
 
 a, a:visited {
@@ -22,8 +37,4 @@ a, a:visited {
 
 #gallery::-webkit-scrollbar {
   display: none;
-}
-
-#gallery img {
-  border: 1px solid rgb(230, 35, 93);
 }

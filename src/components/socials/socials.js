@@ -19,11 +19,16 @@ const socials = [
     url: "https://www.imdb.com/name/nm12554084/",
     alt: "imdb icon",
   },
+  {
+    icon: "fi fi-rr-envelope",
+    url: "mailto:moriah.young@outlook.com",
+    alt: "envelope icon",
+  },
 ];
 
 export default function SocialLinks({
   fontSize = "2em",
-  color = "black",
+  color = "white",
   width = "16em",
 }) {
   return (

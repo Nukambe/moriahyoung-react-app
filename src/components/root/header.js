@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { ScreenContext } from '../../context/ScreenContext';
+import { ThemeContext } from '../../context/ThemeContext';
 import Hamburger from './hamburger/hamburger';
 import './header.css'
 import { useContext } from 'react';
@@ -18,10 +19,11 @@ const headerBackgroundColor = 'rgb(230, 35, 93)';
 
 export default function Header() {
     const mediaQueries = useContext(ScreenContext);
+    const theme = useContext(ThemeContext);
 
     return (
         <header style={{
-            backgroundColor: headerBackgroundColor,
+            backgroundColor: theme.header,
             boxShadow: '0.1em 0em 0.2em ',
             display: 'flex',
             flexDirection: mediaQueries.mobile ? 'row' : 'column',

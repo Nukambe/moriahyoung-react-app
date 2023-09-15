@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import Footer from "../root/footer";
 import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
 import studio from "../../assets/content/mystudio.jpg";
@@ -11,6 +12,7 @@ const demos = [
 
 export default function Voice() {
   const mediaQueries = useContext(ScreenContext);
+  const theme = useContext(ThemeContext);
 
   return (
     <div style={{
@@ -35,7 +37,7 @@ export default function Voice() {
             style={{
               width: "8em",
               borderRadius: "5em",
-              boxShadow: '0.2em 0.2em 1em gray',
+              boxShadow: '0.2em 0.2em 1em black',
               display: "block",
               margin: "2em auto 0",
             }}
@@ -57,10 +59,11 @@ export default function Voice() {
               }}
             >
               <figure style={{
-                border: '0.1em solid gray',
+                border: `0.1em solid ${theme.header}`,
                 borderRadius: '5em',
                 padding: '0.5em 1em',
-                boxShadow: '0.1em 0.1em 0.1em gray'
+                boxShadow: '0.1em 0.1em 0.1em black',
+                backgroundColor: theme.primary
               }}>
                 <figcaption style={{
                   paddingLeft: '2em',
@@ -74,10 +77,11 @@ export default function Voice() {
           ))}
         </div>
         <div style={{
-          border: '0.1em solid gray',
+          border: `0.1em solid ${theme.header}`,
           borderRadius: '1em',
-          boxShadow: '0.1em 0.1em 0.1em gray',
-          width: mediaQueries.mobile ? '100%' : '50%'
+          boxShadow: '0.1em 0.1em 0.1em black',
+          width: mediaQueries.mobile ? '100%' : '50%',
+          backgroundColor: theme.primary
         }}>
           <h2
             style={{

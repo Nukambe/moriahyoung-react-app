@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import { ScreenProvider } from './context/ScreenContext';
+import { ThemeProvider } from './context/ThemeContext';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ScreenProvider>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </ScreenProvider>
     </BrowserRouter>
   </React.StrictMode>
