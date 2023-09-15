@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import Footer from "../root/footer";
-import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
+import avatar from "../../assets/content/IMG_6939.jpg";
 import studio from "../../assets/content/mystudio.jpg";
 
 const demos = [
@@ -36,8 +36,8 @@ export default function Voice() {
             src={avatar}
             alt="avatar"
             style={{
-              width: "8em",
-              borderRadius: "5em",
+              width: "10em",
+              borderRadius: "2em",
               boxShadow: '0.2em 0.2em 1em black',
               display: "block",
               margin: "2em auto 0",
