@@ -14,7 +14,7 @@ export default function Home() {
         display: 'flex',
         flexDirection: 'column',
         width: mediaQueries.phone ? "95%" : mediaQueries.tablet ? '70%' : '60%',
-        maxWidth: mediaQueries.mobile ? '' : '50%',
+        maxWidth: mediaQueries.mobile ? '100%' : '50%',
         margin: "0 auto",
       }}
     >
@@ -57,8 +57,9 @@ export default function Home() {
           src={headshot}
           alt="headshot"
           style={{
-            display: "block",
+            // display: "block",
             width: mediaQueries.mobile ? '90%' : "50%",
+            height: 'auto',
             margin: "0 auto 1em",
             boxShadow: '0.1em 0.1em 0.5em black',
             borderRadius: '1em'
