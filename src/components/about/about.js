@@ -2,24 +2,25 @@ import { useContext } from 'react';
 import { ScreenContext } from '../../context/ScreenContext';
 // import { ThemeContext } from '../../context/ThemeContext';
 import Footer from '../root/footer';
-import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
+import avatar from "../../assets/content/MoriahYoung-HS-Casual.JPG";
+import about1 from "../../assets/content/MoriahYoung-HS-Business.JPG";
 import AboutSection from "./aboutSection";
 
 const abouts = [
   {
-    img: avatar,
+    img: about1,
     alt: "123",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    img: avatar,
+    img: about1,
     alt: "123",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    img: avatar,
+    img: about1,
     alt: "123",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -32,7 +33,7 @@ export default function About() {
 
   return (
     <div style={{
-      width: mediaQueries.mobile ? '90%' : '70%',
+      width: mediaQueries.mobile ? '90%' : '60%',
       margin: '0 auto',
       display: 'flex',
       flexDirection: 'column',

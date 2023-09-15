@@ -29,7 +29,8 @@ export default function Voice() {
         justifyContent: 'center'
       }}>
         <div style={{
-          width: '50%'
+          width: '50%',
+          margin: '0 auto'
         }}>
           <img
             src={avatar}

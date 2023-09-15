@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { ScreenContext } from "../../context/ScreenContext";
 
 export default function AboutSection({ info, index }) {
   const theme = useContext(ThemeContext);
+  const mediaQueries = useContext(ScreenContext);
 
   return (
     <div
@@ -21,7 +23,7 @@ export default function AboutSection({ info, index }) {
         style={{
           width: "auto",
           height: "auto",
-          maxWidth: "100%",
+          maxWidth: mediaQueries.mobile? "100%" : '25em',
           maxHeight: "100%",
           margin: '2em 0 1em',
           boxShadow: '0em -0em 0.5em black'

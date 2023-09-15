@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import Footer from "../root/footer";
-import headshot from "../../assets/content/Moriah_Young-_0534.jpg";
+import headshot from "../../assets/content/0463-_Moriah_Young-_Larger_File.jpg";
 
 export default function Home() {
   const mediaQueries = useContext(ScreenContext);
@@ -13,7 +13,8 @@ export default function Home() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        width: mediaQueries.phone ? "80%" : mediaQueries.tablet ? '70%' : '60%',
+        width: mediaQueries.phone ? "95%" : mediaQueries.tablet ? '70%' : '60%',
+        maxWidth: mediaQueries.mobile ? '' : '50%',
         margin: "0 auto",
       }}
     >
@@ -57,9 +58,10 @@ export default function Home() {
           alt="headshot"
           style={{
             display: "block",
-            width: "10em",
+            width: mediaQueries.mobile ? '90%' : "50%",
             margin: "0 auto 1em",
-            boxShadow: '0.1em 0.1em 0.5em black'
+            boxShadow: '0.1em 0.1em 0.5em black',
+            borderRadius: '1em'
           }}
         />
         <p

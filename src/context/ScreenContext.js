@@ -6,7 +6,7 @@ export const ScreenContext = createContext();
 export const ScreenProvider = props => {
     const mediaQueries = {
         phone: useMediaQuery({ maxWidth: 600 }),
-        tablet: useMediaQuery({ maxWidth: 800 }),
+        tablet: useMediaQuery({ maxWidth: 1000 }),
         desktop: useMediaQuery({ maxWidth: 1920 }),
         tv: useMediaQuery({ minWidth: 1921 }),
         isPortrait: useMediaQuery({ orientation: 'portrait' })
