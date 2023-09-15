@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ScreenContext } from '../../context/ScreenContext';
-import { ThemeContext } from '../../context/ThemeContext';
+// import { ThemeContext } from '../../context/ThemeContext';
 import Footer from '../root/footer';
 import avatar from "../../assets/content/Moriah_Young-_Avatar.jpg";
 import AboutSection from "./aboutSection";
@@ -28,7 +28,7 @@ const abouts = [
 
 export default function About() {
   const mediaQueries = useContext(ScreenContext);
-  const theme = useContext(ThemeContext);
+  // const theme = useContext(ThemeContext);
 
   return (
     <div style={{

@@ -71,7 +71,7 @@ export default function Contact() {
   useEffect(() => {
     if (!submittedForm) return;
     setFormError(validateForm(contactForm));
-  }, [contactForm]);
+  }, [contactForm, submittedForm]);
 
   return (
     <div
