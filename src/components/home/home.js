@@ -39,7 +39,8 @@ export default function Home() {
           {!mediaQueries.mobile &&
             <h1 style={{
               margin: '0',
-              color: 'white'
+              color: 'white',
+              textAlign: 'center'
           }}>Moriah L Young</h1>}
           <h2
             style={{

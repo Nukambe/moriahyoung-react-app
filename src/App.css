@@ -38,3 +38,11 @@ a, a:visited {
 #gallery::-webkit-scrollbar {
   display: none;
 }
+
+.rail-link.active {
+  background-color: #57233A;
+}
+
+.rail-link:hover {
+  background-color: #AE4951;
+}

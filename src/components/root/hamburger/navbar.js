@@ -17,7 +17,7 @@ export default function NavBar() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100%',
-                rowGap: '4em',
+                rowGap: '2em',
                 width: '4em'
             }}
         >
@@ -25,12 +25,19 @@ export default function NavBar() {
                 <NavLink
                     key={index}
                     to={nav.path}
+                    className='rail-link'
+                    style={{
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}
                 >
                     <i
                         className={nav.icon}
                         style={{
                             color: 'white',
-                            fontSize: '2em'
+                            fontSize: '2em',
+                            padding: '0.3em 0'
                         }}
                     />
                 </NavLink>
