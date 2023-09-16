@@ -39,10 +39,25 @@ a, a:visited {
   display: none;
 }
 
+.rail-link {
+  background-color: #B98D72;
+}
+
 .rail-link.active {
   background-color: #57233A;
 }
 
 .rail-link:hover {
   background-color: #AE4951;
+}
+
+.nav-pop {
+  display: block;
+  transform: translate(-20em, -0.2em);
+  transition: transform 0.5s;
+}
+
+.active .nav-pop {
+  display: block;
+  transform: translate(-0.5em, -0.15em);
 }

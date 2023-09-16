@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import NavPopOut from "./navPopOut";
 
 const navigationLinks = [
     { title: 'Home', icon: 'fi fi-rr-home', path: '/' },
@@ -9,6 +11,16 @@ const navigationLinks = [
 ];
 
 export default function NavBar() {
+    const [linkHover, setLinkHover] = useState(false);
+
+    function hoverNavLink(hover) {
+        if (hover) {
+            setLinkHover(true);
+        } else {
+            console.log('stop hover')
+        }
+    }
+
     return (
         <nav
             style={{
@@ -32,14 +44,20 @@ export default function NavBar() {
                         justifyContent: 'center'
                     }}
                 >
-                    <i
-                        className={nav.icon}
-                        style={{
-                            color: 'white',
-                            fontSize: '2em',
-                            padding: '0.3em 0'
-                        }}
-                    />
+                    <div style={{
+                        padding: '0.3em 0',
+                        display: 'flex'
+                    }}>
+                        <i
+                            className={nav.icon}
+                            style={{
+                                color: 'white',
+                                fontSize: '2em',
+
+                            }}
+                        />
+                        <NavPopOut title={nav.title} />
+                    </div>
                 </NavLink>
             ))}
         </nav>
