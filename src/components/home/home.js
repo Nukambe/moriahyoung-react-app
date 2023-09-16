@@ -26,7 +26,6 @@ export default function Home() {
         boxShadow: `0.1em 0.1em 0.5em ${'black'}`,
         backgroundColor: theme.primary,
         display: 'flex',
-        justifyContent: 'flex-start',
         flexDirection: 'column',
         justifyContent: 'space-around',
         height: '100%'

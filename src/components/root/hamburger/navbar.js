@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import NavPopOut from "./navPopOut";
 
@@ -11,16 +10,6 @@ const navigationLinks = [
 ];
 
 export default function NavBar() {
-    const [linkHover, setLinkHover] = useState(false);
-
-    function hoverNavLink(hover) {
-        if (hover) {
-            setLinkHover(true);
-        } else {
-            console.log('stop hover')
-        }
-    }
-
     return (
         <nav
             style={{
