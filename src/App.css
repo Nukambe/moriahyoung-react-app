@@ -28,7 +28,7 @@ a, a:visited {
 }
 
 .mobile-nav.active {
-  color: rgb(230, 35, 93) !important;
+  color: #b93c74 !important;
 }
 
 .mobile-nav.active:hover {
