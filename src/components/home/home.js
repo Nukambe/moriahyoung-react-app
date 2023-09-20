@@ -67,8 +67,8 @@ export default function Home() {
           alt="headshot"
           style={{
             // display: "block",
-            width: mediaQueries.mobile ? "auto" : "50%",
-            height: "16em",
+            maxWidth: mediaQueries.mobile ? "100%" : "50%",
+            maxHeight: mediaQueries.mobile ? "24em" : "auto",
             margin: "0 auto 1em",
             boxShadow: "0.1em 0.1em 0.5em black",
             borderRadius: "1em",
