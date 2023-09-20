@@ -11,43 +11,52 @@ export default function Home() {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: mediaQueries.phone ? "95%" : mediaQueries.tablet ? '70%' : '60%',
-        maxWidth: mediaQueries.mobile ? '100%' : '50%',
+        display: "flex",
+        flexDirection: "column",
+        width: mediaQueries.phone ? "95%" : mediaQueries.tablet ? "70%" : "60%",
+        maxWidth: mediaQueries.mobile ? "100%" : "50%",
         margin: "0 auto",
       }}
     >
-      <div style={{
-        margin: mediaQueries.mobile ? '1em' : '4em 0',
-        border: `0.1em solid ${theme.header}`,
-        borderRadius: '1em',
-        padding: '1em',
-        boxShadow: `0.1em 0.1em 0.5em ${'black'}`,
-        backgroundColor: theme.primary,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        height: '100%'
-      }}>
-        <div style={{
-          borderRadius: '1em',
-          padding: '1em',
-          boxShadow: '0.1em 0.1em 0.5em black',
-          marginBottom: '1em',
-          backgroundColor: theme.secondary,
-        }}>
-          {!mediaQueries.mobile &&
-            <h1 style={{
-              margin: '0',
-              color: 'white',
-              textAlign: 'center'
-          }}>Moriah L Young</h1>}
+      <div
+        style={{
+          margin: mediaQueries.mobile ? "1em" : "4em 0",
+          border: `0.1em solid ${theme.header}`,
+          borderRadius: "1em",
+          padding: "1em",
+          boxShadow: `0.1em 0.1em 0.5em black`,
+          backgroundColor: theme.primary,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          height: "100%",
+        }}
+      >
+        <div
+          style={{
+            borderRadius: "1em",
+            padding: "1em",
+            boxShadow: "0.1em 0.1em 0.5em black",
+            marginBottom: "1em",
+            backgroundColor: theme.secondary,
+          }}
+        >
+          {!mediaQueries.mobile && (
+            <h1
+              style={{
+                margin: "0",
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              Moriah L Young
+            </h1>
+          )}
           <h2
             style={{
               textAlign: "center",
-              marginTop: mediaQueries.mobile ? '' : '1em',
-              color: 'white'
+              marginTop: mediaQueries.mobile ? "" : "1em",
+              color: "white",
             }}
           >
             Voice Actor + On Camera Talent
@@ -58,11 +67,11 @@ export default function Home() {
           alt="headshot"
           style={{
             // display: "block",
-            width: mediaQueries.mobile ? '90%' : "50%",
-            height: 'auto',
+            width: mediaQueries.mobile ? "auto" : "50%",
+            height: "16em",
             margin: "0 auto 1em",
-            boxShadow: '0.1em 0.1em 0.5em black',
-            borderRadius: '1em'
+            boxShadow: "0.1em 0.1em 0.5em black",
+            borderRadius: "1em",
           }}
         />
         <p
@@ -70,19 +79,19 @@ export default function Home() {
             margin: "0 auto",
             textAlign: "justify",
             backgroundColor: theme.secondary,
-            borderRadius: '1em',
-            padding: '1em',
-            boxShadow: '0.1em 0.1em 0.5em black',
-            color: 'white'
+            borderRadius: "1em",
+            padding: "1em",
+            boxShadow: "0.1em 0.1em 0.5em black",
+            color: "white",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
       {!mediaQueries.mobile && <Footer />}
