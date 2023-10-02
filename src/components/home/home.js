@@ -85,13 +85,7 @@ export default function Home() {
             color: "white",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Welcome to the virtual home of a woman who thrives off the entertainment of others. Moriah Young is a voice over artist and on screen talent who loves little more than bringing smiles, joy and thought provoking emotions out of people. Please make yourself at home (browse) and see what she’s all about!
         </p>
       </div>
       {!mediaQueries.mobile && <Footer />}
