@@ -4,6 +4,8 @@
 //-------------------------------------------------------------
 import Navigation from "./components/Navigation";
 import PageSection from "./components/PageSection";
+import Home from "./components/Home";
+import Voice from "./components/Voice";
 //-------------------------------------------------------------
 import "./App.css";
 
@@ -13,8 +15,12 @@ function App() {
   return (
     <div>
       <Navigation />
-      <PageSection section="home">Home</PageSection>
-      <PageSection section="voice">Voice</PageSection>
+      <PageSection section="home">
+        <Home />
+      </PageSection>
+      <PageSection section="voice">
+        <Voice />
+      </PageSection>
       <PageSection section="video">Video</PageSection>
       <PageSection section="about">About</PageSection>
       <PageSection section="contact">Contact</PageSection>
