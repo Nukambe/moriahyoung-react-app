@@ -15,10 +15,11 @@ export default function AudioPlayer({ tracks }) {
       audioRef.current.play();
       audioTimer = setInterval(() => {
         setAudioPosition(audioRef.current?.currentTime);
+        console.log("audioplayer position timer is on");
       }, 20);
     } else {
       audioRef.current.pause();
-    //   clearInterval(audioTimer);
+      //   clearInterval(audioTimer);
     }
 
     return () => {
@@ -37,15 +38,15 @@ export default function AudioPlayer({ tracks }) {
   }, [track]);
 
   function seekAudio(position) {
-      audioRef.current.currentTime = position;
-      setAudioPosition(audioRef.current?.currentTime);
+    audioRef.current.currentTime = position;
+    setAudioPosition(audioRef.current?.currentTime);
   }
 
   return (
     <>
       <figure>
         <figcaption>{tracks[track].title}</figcaption>
-        <audio ref={audioRef} src={tracks[track].src}>
+        <audio ref={audioRef} src={tracks[track].src} typeof="audio/mp3">
           <a href={tracks[track].src}>Download audio</a>
         </audio>
         <button onClick={() => setPlaying(!playing)}>PLAY/PAUSE</button>
@@ -56,8 +57,20 @@ export default function AudioPlayer({ tracks }) {
           value={audioPosition}
           onChange={(e) => seekAudio(e.target.value)}
         />
-        <button>{"<<"}</button>
-        <button>{">>"}</button>
+        <button
+          onClick={() =>
+            setTrack((prev) => (prev === 0 ? tracks.length - 1 : prev - 1))
+          }
+        >
+          {"<<"}
+        </button>
+        <button
+          onClick={() =>
+            setTrack((prev) => (prev === tracks.length - 1 ? 0 : prev + 1))
+          }
+        >
+          {">>"}
+        </button>
       </figure>
 
       <ul>
