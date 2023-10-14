@@ -8,9 +8,15 @@ const tracks = [
 
 export default function Voice() {
   return (
-    <>
-      <h1>Voice Component</h1>
+    <div style={{
+      minHeight: '50vh'
+    }}>
+      <h2>DEMOS</h2>
+      <h3>
+        I USE MY VOICE FOR THE SOUL PURPOSE TO CONNECT, SERVE, ENGAGE, AND
+        INFORM.
+      </h3>
       <AudioPlayer tracks={tracks} />
-    </>
+    </div>
   );
 }
