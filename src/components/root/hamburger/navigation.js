@@ -10,16 +10,6 @@ const navLinks = [
 ];
 
 export default function Navigation({ setMenu }) {
-  useEffect(() => {
-    const visibilityTimer = setTimeout(() => {
-      setVisibility(true);
-    }, 0);
-
-    return () => {
-      clearTimeout(visibilityTimer);
-    };
-  }, []);
-
   return (
     <div className="relative top-0 h-screen" onClick={() => setMenu(false)}>
       <nav className="flex flex-col space-y-8 py-8">
