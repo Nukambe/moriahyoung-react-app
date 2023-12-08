@@ -27,30 +27,17 @@ const socials = [
 ];
 
 export default function SocialLinks({
-  fontSize = "2em",
-  color = "white",
-  width = "16em",
+  className = "mx-auto w-96 text-4xl flex justify-evenly text-rose-800",
 }) {
   return (
-    <div
-      style={{
-        width: width,
-        margin: "0 auto",
-        display: "flex",
-        justifyContent: "space-around",
-      }}
-    >
+    <ul className={className}>
       {socials.map((social, index) => (
-        <a key={index} href={social["url"]} target="_blank" rel="noreferrer">
-          <i
-            className={social["icon"]}
-            style={{
-              fontSize: fontSize,
-              color: color,
-            }}
-          ></i>
-        </a>
+        <li key={index}>
+          <a href={social.url} target="_blank" rel="noreferrer nofollow">
+            <i className={social.icon} />
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

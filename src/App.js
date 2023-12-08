@@ -17,21 +17,18 @@ function App() {
   const mediaQueries = useContext(ScreenContext);
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: mediaQueries.mobile ? 'column' : 'row',
-      minHeight: '100vh'
-    }}>
+    <div className="flex h-full">
       <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/oncamera" element={<OnCamera />} />
-        <Route exact path="/voice" element={<Voice />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      {mediaQueries.mobile && <Footer />}
+      <div className="md:ml-[200px] w-full h-full overflow-x-hidden bg-rose-50">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/oncamera" element={<OnCamera />} />
+          <Route exact path="/voice" element={<Voice />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </div>
   );
 }

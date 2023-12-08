@@ -1,66 +1,65 @@
-import { Route, Routes } from "react-router-dom";
-import { ScreenContext } from "../../context/ScreenContext";
-import { ThemeContext } from "../../context/ThemeContext";
-import Hamburger from "./hamburger/hamburger";
-import { useContext } from "react";
-import NavBar from "./hamburger/navbar";
+import { useLocation } from "react-router-dom";
+import {
+  ChatBubbleLeftRightIcon,
+  HomeModernIcon,
+  MicrophoneIcon,
+  UserCircleIcon,
+  VideoCameraIcon,
+} from "@heroicons/react/24/outline";
+import SocialLinks from "../socials/socials";
 
-const headings = [
-  { path: "/", heading: "Moriah L Young", size: "2em" },
-  { path: "/about", heading: "BEHIND THE SCENES", size: "1.5em" },
-  { path: "/oncamera", heading: "LIGHTS, CAMERA, ACTION", size: "1.4em" },
-  { path: "/voice", heading: "BEHIND THE MIC", size: "2em" },
-  { path: "/creator", heading: "INSIDE THE MIND", size: "2em" },
-  { path: "/contact", heading: "CONTACT ME", size: "2em" },
+const navigation = [
+  { href: "/", name: "Home", icon: HomeModernIcon },
+  { href: "/about", name: "About", icon: UserCircleIcon },
+  { href: "/voice", name: "Voice", icon: MicrophoneIcon },
+  { href: "/oncamera", name: "On-Camera", icon: VideoCameraIcon },
+  { href: "/contact", name: "Contact", icon: ChatBubbleLeftRightIcon },
 ];
 
-const headerBackgroundColor = "rgb(230, 35, 93)";
-
 export default function Header() {
-  const mediaQueries = useContext(ScreenContext);
-  const theme = useContext(ThemeContext);
+  const path = useLocation().pathname;
 
   return (
-    <header
-      style={{
-        backgroundColor: theme.header,
-        boxShadow: "0.1em 0em 0.2em ",
-        display: "flex",
-        flexDirection: mediaQueries.mobile ? "row" : "column",
-        height: mediaQueries.mobile ? "" : "100vh",
-        alignItems: "center",
-        position: "sticky",
-        top: "0",
-        zIndex: "2",
-      }}
-    >
-      {mediaQueries.mobile && (
-        <>
-          <Hamburger bgColor={headerBackgroundColor} />
-          <Routes>
-            {headings.map((heading, index) => (
-              <Route
-                key={index}
-                path={heading["path"]}
-                element={
-                  <h1
-                    style={{
-                      color: "white",
-                      margin: `0.5em ${mediaQueries.mobile ? "" : "auto"}`,
-                      fontSize: mediaQueries.mobile ? heading.size : "2em",
-                      lineHeight: "1",
-                    }}
-                  >
-                    {heading["heading"]}
-                  </h1>
-                }
-              />
-            ))}
-            <Route path="*" element={null} />
-          </Routes>
-        </>
-      )}
-      {!mediaQueries.mobile && <NavBar />}
+    <header className="hidden md:flex flex-col gap-y-5 overflow-y-auto bg-rose-600 px-6 w-[200px] shrink-0 h-full fixed">
+      <nav className="flex flex-1 flex-col py-8">
+        <ul className="-mx-2 space-y-4">
+          {navigation.map((item) => (
+            <li key={item.name}>
+              <a
+                href={item.href}
+                className={`
+                      ${
+                        item.href === path
+                          ? "bg-rose-700 text-white"
+                          : "text-rose-200 hover:text-white hover:bg-rose-700"
+                      }
+                       group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold
+                    `}
+              >
+                <item.icon
+                  className={`${
+                    item.current
+                      ? "text-white"
+                      : "text-rose-200 group-hover:text-white"
+                  }
+                        "h-6 w-6 shrink-0"
+                      `}
+                  aria-hidden="true"
+                />
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <a
+        href="https://wesleychappell.com"
+        target="_blank"
+        rel="noreferrer nofollow"
+        className="text-rose-300"
+      >
+        &copy; Wesley Chappell
+      </a>
     </header>
   );
 }

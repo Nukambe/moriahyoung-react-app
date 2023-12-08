@@ -1,130 +1,88 @@
-import { useContext } from "react";
-import { ScreenContext } from "../../context/ScreenContext";
-import { ThemeContext } from "../../context/ThemeContext";
-import Footer from "../root/footer";
-import avatar from "../../assets/content/IMG_6939.jpg";
-import studio from "../../assets/content/mystudio.jpg";
-
-const demos = [
-  { title: "Commercial", src: "Commercial_Demo_Moriah_Young.mp3", link: 'https://soundcloud.com/moriah-young-463207945/commercial-demo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
-  { title: "Narration", src: "Narration_Demo_Moriah_Young.mp3", link: 'https://soundcloud.com/moriah-young-463207945/narration-demo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
-];
+import { useState } from "react";
+import AudioPlayer from "../AudioPlayer";
+import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 export default function Voice() {
-  const mediaQueries = useContext(ScreenContext);
-  const theme = useContext(ThemeContext);
+  const [tab, setTab] = useState(0);
+  const [track, setTrack] = useState([0, 0]);
+  const [showPlayer, setShowPlayer] = useState(false);
+  const categories = [
+    {
+      name: "Full Demos",
+      content: [
+        { name: "Commercial", src: "/audio/Commercial_Demo_Moriah_Young.mp3" },
+        { name: "Narration", src: "/audio/Narration_Demo_Moriah_Young.mp3" },
+      ],
+    },
+    {
+      name: "Commercial",
+      content: [
+        { name: "Nissan", src: "" },
+        { name: "Asthma", src: "" },
+        { name: "Pampers", src: "" },
+        { name: "Salad", src: "" },
+        { name: "Spotify", src: "" },
+      ],
+    },
+    {
+      name: "Narration",
+      content: [
+        { name: "Narration", src: "" },
+        { name: "Narration", src: "" },
+      ],
+    },
+  ];
 
   return (
-    <div style={{
-      margin: '0 auto',
-      width: '80%',
-      minWidth: mediaQueries.mobile ? '400px' : '1000px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center'
-    }}>
-      <div style={{
-        display: !mediaQueries.mobile && 'flex',
-        marginTop: '3em',
-        justifyContent: 'center'
-      }}>
-        <div style={{
-          width: '50%',
-          margin: '0 auto'
-        }}>
-          <img
-            src={avatar}
-            alt="avatar"
-            style={{
-              width: "10em",
-              borderRadius: "2em",
-              boxShadow: '0.2em 0.2em 1em black',
-              display: "block",
-              margin: "2em auto 0",
-            }}
-          />
-          <h2
-            style={{
-              textAlign: "center",
-            }}
-          >
-            Demos
-          </h2>
-          {demos.map((demo, index) => (
-            <div
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <figure style={{
-                border: `0.1em solid ${theme.header}`,
-                borderRadius: '5em',
-                padding: '0.5em 1em',
-                boxShadow: '0.1em 0.1em 0.1em black',
-                backgroundColor: theme.primary
-              }}>
-                <figcaption style={{
-                  paddingLeft: '2em',
-                  marginBottom: '0.2em'
-                }}>{demo.title}</figcaption>
-                <audio controls src={`audio/${demo.src}`}>
-                  <a href={demo.link}>Play on SoundCloud</a>
-                </audio>
-              </figure>
-            </div>
-          ))}
-        </div>
-        <div style={{
-          border: `0.1em solid ${theme.header}`,
-          borderRadius: '1em',
-          boxShadow: '0.1em 0.1em 0.1em black',
-          width: mediaQueries.mobile ? '100%' : '50%',
-          backgroundColor: theme.primary
-        }}>
-          <h2
-            style={{
-              textAlign: "center",
-            }}
-          >
-            Studio
-          </h2>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: 'column',
-              justifyContent: "space-between",
-              width: "16em",
-              margin: "0 auto",
-            }}
-          >
-            <img
-              src={studio}
-              alt="studio"
-              style={{
-                borderTop: '0.1em solid darkred',
-                borderRight: '0.1em solid darkred',
-                borderLeft: '0.1em solid lightblue',
-                borderBottom: '0.1em solid lightblue',
-                boxShadow: '1em -1em 0 lightblue, -1em 0.5em 0 darkred'
-              }}
-            />
-            <p
-              style={{
-                textAlign: "justify",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
-            </p>
-          </div>
+    <div className="p-16 bg-rose-50 h-full w-full">
+      <div className="border-b border-gray-200 pb-5 sm:pb-0">
+        <h3 className="sm:text-base font-semibold text-2xl leading-6 text-gray-900 mb-8">
+          Demos
+        </h3>
+        <div className="mt-3 sm:mt-4">
+          <ul className="-mb-px flex sm:space-x-8 flex-col sm:flex-row">
+            {categories.map((category, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => setTab(index)}
+                  className={`${
+                    tab === index
+                      ? "sm:border-rose-500 text-rose-600"
+                      : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                  }
+                  whitespace-nowrap sm:border-b-2 px-1 pb-4 text-xl sm:text-sm font-medium text-left`}
+                >
+                  {category.name}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      {!mediaQueries.mobile && <Footer />}
+      <ul className="py-8 space-y-4 max-w-xl">
+        {categories[tab].content.map((sample, index) => (
+          <li>
+            <button
+              onClick={() => {
+                setTrack([tab, index]);
+                setShowPlayer(true);
+              }}
+              className="w-full rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 flex justify-between items-center"
+            >
+              {sample.name}
+              <span>
+                <PlayCircleIcon className="w-8" />
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      {showPlayer && (
+        <AudioPlayer
+          name={categories[track[0]].content[track[1]].name}
+          src={categories[track[0]].content[track[1]].src}
+        />
+      )}
     </div>
   );
 }
