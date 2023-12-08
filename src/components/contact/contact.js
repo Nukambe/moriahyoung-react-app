@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { ScreenContext } from "../../context/ScreenContext";
 import { ThemeContext } from "../../context/ThemeContext";
-import Footer from "../root/footer";
 import emailjs from "@emailjs/browser";
 import SocialLinks from "../socials/socials";
 import validateForm from "./contactFormValidation";
@@ -28,7 +27,6 @@ const inputStyle = {
 export default function Contact() {
   const theme = useContext(ThemeContext);
   inputStyle.border = `0.15em solid ${theme.header}`;
-  // inputStyle.backgroundColor = theme.secondary;
   const mediaQueries = useContext(ScreenContext);
   const [submittedForm, setSubmittedForm] = useState(false);
   const [formError, setFormError] = useState({

@@ -6,7 +6,6 @@ import {
   UserCircleIcon,
   VideoCameraIcon,
 } from "@heroicons/react/24/outline";
-import SocialLinks from "../socials/socials";
 
 const navigation = [
   { href: "/", name: "Home", icon: HomeModernIcon },

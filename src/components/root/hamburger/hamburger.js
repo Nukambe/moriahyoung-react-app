@@ -2,23 +2,17 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import Navigation from "./navigation";
 
-export default function Hamburger({ bgColor }) {
+export default function Hamburger() {
   const [menu, setMenu] = useState(false);
   const theme = useContext(ThemeContext);
 
   return (
-    <>
+    <div className="md:hidden flex justify-end text-5xl px-4 bg-rose-600 text-white relative w-full flex-col">
       <i
-        className="fi fi-bs-menu-burger"
+        className={`fi ${menu ? "fi-rr-cross" : "fi-rr-menu-burger"} mt-2`}
         onClick={() => setMenu(!menu)}
-        style={{
-          zIndex: "4",
-          margin: "0.5em 0.5em 0.2em",
-          fontSize: "2em",
-          color: menu ? theme.header : "white",
-        }}
-      ></i>
+      />
       {menu ? <Navigation menu={menu} setMenu={setMenu} /> : null}
-    </>
+    </div>
   );
 }

@@ -1,8 +1,3 @@
-import { useContext } from "react";
-import { ScreenContext } from "../../context/ScreenContext";
-import Footer from "../root/footer";
-import Gallery from "./gallery/gallery";
-
 const reels = [
   {
     title: "Reel 1",
@@ -15,8 +10,6 @@ const reels = [
 ];
 
 export default function OnCamera() {
-  const mediaQueries = useContext(ScreenContext);
-
   return (
     <div className="bg-rose-50 h-full">
       <ul className="flex flex-col items-center space-y-24 py-16 px-8">
