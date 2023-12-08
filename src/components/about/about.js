@@ -6,7 +6,7 @@ import badassHeadshot from "../../assets/content/0572-_Moriah_Young-_Larger_File
 
 export default function About() {
   return (
-    <div className="relative isolate z-10 overflow-hidden bg-red-50 w-full h-full">
+    <div className="relative isolate z-10 overflow-x-hidden lg:overflow-y-hidden bg-red-50 w-full h-full">
       <svg
         className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
         aria-hidden="true"
