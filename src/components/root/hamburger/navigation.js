@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import MyNavLink from "./myNavLink";
 
 const navLinks = [
