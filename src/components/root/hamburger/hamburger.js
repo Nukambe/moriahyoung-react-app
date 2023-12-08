@@ -1,10 +1,8 @@
-import { useContext, useState } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { useState } from "react";
 import Navigation from "./navigation";
 
 export default function Hamburger() {
   const [menu, setMenu] = useState(false);
-  const theme = useContext(ThemeContext);
 
   return (
     <div className="md:hidden flex justify-end text-5xl px-4 bg-rose-600 text-white relative w-full flex-col">

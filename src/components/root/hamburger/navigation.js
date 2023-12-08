@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import MyNavLink from "./myNavLink";
 
 const navLinks = [
@@ -9,9 +9,7 @@ const navLinks = [
   { path: "/contact", text: "CONTACT" },
 ];
 
-export default function Navigation({ menu, setMenu }) {
-  const [visibility, setVisibility] = useState(false);
-
+export default function Navigation({ setMenu }) {
   useEffect(() => {
     const visibilityTimer = setTimeout(() => {
       setVisibility(true);
