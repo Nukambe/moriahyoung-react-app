@@ -1,11 +1,11 @@
 const reels = [
   {
     title: "Reel 1",
-    src: "/video/Reel1.mp4",
+    src: "https://player.vimeo.com/video/849975538?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
   },
   {
     title: "Reel 2",
-    src: "/video/Reel2.mp4",
+    src: "https://player.vimeo.com/video/849974706?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
   },
 ];
 
@@ -16,9 +16,16 @@ export default function OnCamera() {
         {reels.map((reel, index) => (
           <li key={index} style={{ width: "95%", maxWidth: "60em" }}>
             <h2 className="mb-8 text-4xl font-semibold">{reel.title}</h2>
-            <video className="w-full rounded-lg" controls src={reel.src}>
-              <a href={reel.src}>Download the reel.</a>
-            </video>
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+              <iframe
+                src={reel.src}
+                frameBorder="0"
+                allow="fullscreen; picture-in-picture"
+                className="w-full h-full absolute top-0 left-0"
+                title={`Moriah Reel Scene ${index + 1}`}
+              />
+            </div>
+            <script src="https://player.vimeo.com/api/player.js" />
           </li>
         ))}
       </ul>
