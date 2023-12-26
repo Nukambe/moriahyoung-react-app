@@ -2,9 +2,9 @@ import headshot from "../../assets/content/0463-_Moriah_Young-_Larger_File.jpg";
 
 export default function Home() {
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-rose-50 w-full h-full">
-      <div className="w-full md:w-3/4 p-16">
-        <h1 className="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
+    <div className="flex flex-col lg:flex-row justify-between items-center bg-rose-50 w-full h-full">
+      <div className="px-8 lg:min-w-[300px] lg:max-w-[400px] xl:min-w-[672px]">
+        <h1 className="mt-24 text-4xl font-bold tracking-tight text-rose-900 sm:mt-10 sm:text-6xl">
           Moriah Young
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -29,11 +29,13 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <img
-        className="lg:h-full lg:w-full lg:object-cover pb-8 px-8 sm:px-36 md:px-16 lg:p-0 bg-rose-50"
-        src={headshot}
-        alt="Headshot"
-      />
+      <div className="p-8 lg:p-0 h-full">
+        <img
+          className="shadow-lg lg:object-cover h-full"
+          src={headshot}
+          alt="Headshot"
+        />
+      </div>
     </div>
   );
 }

@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/public/video/Reel1.mp4
+/public/video/Reel2.mp4

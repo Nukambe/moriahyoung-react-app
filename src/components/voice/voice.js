@@ -10,25 +10,24 @@ export default function Voice() {
     {
       name: "Full Demos",
       content: [
-        { name: "Commercial", src: "/audio/Commercial_Demo_Moriah_Young.mp3" },
-        { name: "Narration", src: "/audio/Narration_Demo_Moriah_Young.mp3" },
+        {
+          name: "Commercial",
+          src: "/audio/demos/Commercial_Demo_Moriah_Young.mp3",
+        },
+        {
+          name: "Narration",
+          src: "/audio/demos/Narration_Demo_Moriah_Young.mp3",
+        },
       ],
     },
     {
       name: "Commercial",
       content: [
-        { name: "Nissan", src: "" },
-        { name: "Asthma", src: "" },
-        { name: "Pampers", src: "" },
-        { name: "Salad", src: "" },
-        { name: "Spotify", src: "" },
-      ],
-    },
-    {
-      name: "Narration",
-      content: [
-        { name: "Narration", src: "" },
-        { name: "Narration", src: "" },
+        { name: "Nissan", src: "/audio/commercial/Nissan.mp3" },
+        { name: "Asthma", src: "/audio/commercial/PSA.mp3" },
+        { name: "Pampers", src: "/audio/commercial/Pampers.mp3" },
+        { name: "Salad", src: "/audio/commercial/Salad.mp3" },
+        { name: "Spotify", src: "/audio/commercial/Spotify.mp3" },
       ],
     },
   ];

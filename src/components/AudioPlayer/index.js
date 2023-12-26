@@ -27,7 +27,6 @@ export default function AudioPlayer({ name, src }) {
   function muteAudio(shouldMute) {
     audio.current.muted = shouldMute;
     setMute(shouldMute);
-    console.log(audio.current.muted);
   }
 
   function skipAudio(length) {
@@ -47,7 +46,7 @@ export default function AudioPlayer({ name, src }) {
     audio.current.currentTime = 0;
     audio.current.src = src;
     audio.current.load();
-    setTimeout(() => playAudio(), 1000);
+    setTimeout(() => playAudio(), 500);
   }, [src]);
 
   useEffect(() => {
