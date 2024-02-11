@@ -35,6 +35,7 @@ export default function About() {
                 src={badassHeadshot}
                 alt="Bad-ass Headshot"
                 delay={1}
+                className="about-desktop"
               />
             </div>
             <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
@@ -44,6 +45,12 @@ export default function About() {
                 delay={0}
               />
               <AboutImage src={bestHeadshot} alt="Lovable Headshot" delay={4} />
+              <AboutImage
+                src={badassHeadshot}
+                alt="Bad-ass Headshot"
+                delay={1}
+                className="about-mobile"
+              />
             </div>
             <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
               <AboutImage

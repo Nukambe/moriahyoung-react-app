@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
+import "./aboutImage.css";
 
-export default function AboutImage({ src, alt, delay }) {
+export default function AboutImage({ src, alt, delay, className }) {
   return (
     <motion.div
-      className="relative overflow-hidden rounded-xl"
+      className={`relative overflow-hidden rounded-xl ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, threshold: 0.2 }}
       transition={{ duration: 0.5, delay: delay * 0.2 }}
     >
       <motion.img
