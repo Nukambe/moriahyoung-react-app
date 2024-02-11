@@ -1,33 +1,11 @@
-import { useState, useContext, useEffect } from "react";
-import { ScreenContext } from "../../context/ScreenContext";
-import { ThemeContext } from "../../context/ThemeContext";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import SocialLinks from "../socials/socials";
 import validateForm from "./contactFormValidation";
-import ContactError from "./contactError";
-
-const divStyle = {
-  display: "flex",
-  flexDirection: "column",
-  marginTop: "1em",
-};
-
-const labelStyle = {
-  paddingLeft: "0.5em",
-};
-
-const inputStyle = {
-  height: "2em",
-  border: "0.1em solid gray",
-  borderRadius: "1em",
-  paddingLeft: "1em",
-  fontSize: "1em",
-};
+import ContactInput from "./contactInput";
+import { motion } from "framer-motion";
 
 export default function Contact() {
-  const theme = useContext(ThemeContext);
-  inputStyle.border = `0.15em solid ${theme.header}`;
-  const mediaQueries = useContext(ScreenContext);
   const [submittedForm, setSubmittedForm] = useState(false);
   const [formError, setFormError] = useState({
     name: false,
@@ -49,9 +27,11 @@ export default function Contact() {
     });
   };
 
-  function sendEmail() {
+  function sendEmail(event) {
+    event.preventDefault();
     setSubmittedForm(true);
     if (!formError.ok) {
+      console.log("Form error. Not sending email.");
       return;
     }
     emailjs
@@ -70,6 +50,7 @@ export default function Contact() {
         },
         (err) => {
           console.log(err.text);
+          alert("Error sending inquiry. Please try again later.");
         }
       );
   }
@@ -77,6 +58,7 @@ export default function Contact() {
   useEffect(() => {
     if (!submittedForm) return;
     setFormError(validateForm(contactForm));
+    console.log("validating form");
   }, [contactForm, submittedForm]);
 
   return (
@@ -90,100 +72,48 @@ export default function Contact() {
         flexDirection: "column",
       }}
     >
-      {!mediaQueries.mobile && <div style={{ marginTop: "3em" }}></div>}
-      <SocialLinks className="mx-auto w-96 text-4xl flex justify-evenly text-rose-800" />
-      <h2 className="text-center mt-16 text-2xl">
-        Can't wait to hear from you!
-      </h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          sendEmail();
-        }}
-        style={{
-          marginTop: "2em",
-        }}
-      >
-        <div style={divStyle}>
-          <label htmlFor="name" style={labelStyle}>
-            Name
-          </label>
-          <input
-            id="name"
-            value={contactForm.name}
-            onChange={(e) =>
-              setContactForm({ ...contactForm, name: e.target.value })
-            }
-            style={{
-              ...inputStyle,
-              border:
-                submittedForm && !formError.name
-                  ? "0.15em solid red"
-                  : inputStyle.border,
-            }}
-          />
-          {submittedForm && !formError.name && <ContactError name="name" />}
-        </div>
-        <div style={divStyle}>
-          <label htmlFor="email" style={labelStyle}>
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={contactForm.email}
-            onChange={(e) =>
-              setContactForm({ ...contactForm, email: e.target.value })
-            }
-            style={{
-              ...inputStyle,
-              border:
-                submittedForm && !formError.email
-                  ? "0.15em solid red"
-                  : inputStyle.border,
-            }}
-          />
-          {submittedForm && !formError.email && <ContactError name="email" />}
-        </div>
-        <div style={divStyle}>
-          <label htmlFor="inquiry" style={labelStyle}>
-            Inquiry
-          </label>
-          <textarea
-            id="inquiry"
-            value={contactForm.inquiry}
-            onChange={(e) =>
-              setContactForm({ ...contactForm, inquiry: e.target.value })
-            }
-            rows="7"
-            style={{
-              resize: "none",
-              border:
-                submittedForm && !formError.inquiry
-                  ? "0.2em solid red"
-                  : `0.2em solid ${theme.header}`,
-              borderRadius: "1em",
-              padding: "1em 1em",
-              fontSize: "1em",
-            }}
-          />
-          {submittedForm && !formError.inquiry && (
-            <ContactError name="inquiry" />
-          )}
-        </div>
-        <button
+      <div className="text-center mt-16 text-4xl text-rose-800">
+        <p>Reach out!</p>
+        <p>I'd love to hear from you.</p>
+      </div>
+      <SocialLinks className="mx-auto my-8 w-96 text-4xl flex justify-evenly text-rose-800" />
+      <form onSubmit={(e) => sendEmail(e)}>
+        <ContactInput
+          label="Name"
+          type="text"
+          autoComplete="name"
+          value={contactForm.name}
+          setValue={(value) => setContactForm({ ...contactForm, name: value })}
+          error={!formError.name && submittedForm}
+          errorText="Invalid name. Must contain only letters."
+        />
+        <ContactInput
+          label="Email"
+          type="email"
+          autoComplete="email"
+          value={contactForm.email}
+          setValue={(value) => setContactForm({ ...contactForm, email: value })}
+          error={!formError.email && submittedForm}
+          errorText="Invalid email. Must be a valid email address."
+        />
+        <ContactInput
+          label="Inquiry"
+          type="textarea"
+          value={contactForm.inquiry}
+          setValue={(value) =>
+            setContactForm({ ...contactForm, inquiry: value })
+          }
+          error={!formError.inquiry && submittedForm}
+          errorText="Inquiry must be between 16 and 280 characters."
+        />
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           type="submit"
-          className="bg-rose-800 text-white"
-          style={{
-            marginTop: "1.5em",
-            marginLeft: "0em",
-            padding: "0.7em 2.5em",
-            border: `0.1em solid ${theme.header}`,
-            borderRadius: "1em",
-          }}
+          className="bg-rose-800 text-white px-8 py-2 text-2xl rounded-md"
         >
           Submit
-        </button>
+        </motion.button>
       </form>
     </div>
   );

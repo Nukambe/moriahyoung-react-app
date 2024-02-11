@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import {
   ChatBubbleLeftRightIcon,
   HomeModernIcon,
@@ -19,13 +19,13 @@ export default function Header() {
   const path = useLocation().pathname;
 
   return (
-    <header className="hidden md:flex flex-col gap-y-5 overflow-y-auto bg-rose-600 px-6 w-[200px] shrink-0 h-full fixed">
+    <header className="hidden md:flex flex-col gap-y-5 overflow-y-auto bg-rose-600 px-6 w-[200px] shrink-0 h-full fixed shadow-2xl">
       <nav className="flex flex-1 flex-col py-8">
         <ul className="-mx-2 space-y-4">
           {navigation.map((item) => (
             <li key={item.name}>
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 className={`
                       ${
                         item.href === path
@@ -46,19 +46,12 @@ export default function Header() {
                   aria-hidden="true"
                 />
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <a
-        href="https://wesleychappell.com"
-        target="_blank"
-        rel="noreferrer nofollow"
-        className="text-rose-300"
-      >
-        &copy; Wesley Chappell
-      </a>
+      <p className="text-rose-300 text-center">&copy; Moriah Young</p>
     </header>
   );
 }

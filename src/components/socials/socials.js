@@ -1,42 +1,56 @@
+import { motion } from "framer-motion";
+
 const socials = [
   {
-    icon: "fi fi-brands-facebook",
+    icon: "/icons/facebook.svg",
     url: "https://www.facebook.com/moriah.young.5",
-    alt: "facebook icon",
+    alt: "facebook",
   },
   {
-    icon: "fi fi-brands-instagram",
+    icon: "/icons/instagram.svg",
     url: "https://www.instagram.com/moriahlyoung/",
-    alt: "instagram icon",
+    alt: "instagram",
   },
   {
-    icon: "fi fi-brands-soundcloud",
+    icon: "/icons/soundcloud.svg",
     url: "https://soundcloud.com/moriah-young-463207945",
-    alt: "soundcloud icon",
+    alt: "soundcloud",
   },
   {
-    icon: "fi fi-brands-imdb",
+    icon: "/icons/imdb.svg",
     url: "https://www.imdb.com/name/nm12554084/",
-    alt: "imdb icon",
+    alt: "imdb",
   },
   {
-    icon: "fi fi-rr-envelope",
+    icon: "/icons/outlook.svg",
     url: "mailto:moriah.young@outlook.com",
-    alt: "envelope icon",
+    alt: "email",
   },
 ];
 
 export default function SocialLinks({
   className = "mx-auto w-96 text-4xl flex justify-evenly text-rose-800",
+  size = 48,
 }) {
   return (
     <ul className={className}>
       {socials.map((social, index) => (
-        <li key={index}>
+        <motion.li
+          key={index}
+          initial={{ opacity: 0, y: -64 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <a href={social.url} target="_blank" rel="noreferrer nofollow">
-            <i className={social.icon} />
+            <img
+              src={social.icon}
+              alt={social.alt}
+              height={social.alt === "imdb" ? size * 1.1 : size}
+              width={social.alt === "imdb" ? size * 1.1 : size}
+            />
           </a>
-        </li>
+        </motion.li>
       ))}
     </ul>
   );

@@ -1,4 +1,7 @@
+import HomeButton from "./homeButton";
 import headshot from "../../assets/content/0463-_Moriah_Young-_Larger_File.jpg";
+import { motion } from "framer-motion";
+import SocialLinks from "../socials/socials";
 
 export default function Home() {
   return (
@@ -7,6 +10,7 @@ export default function Home() {
         <h1 className="mt-24 text-4xl font-bold tracking-tight text-rose-900 sm:mt-10 sm:text-6xl">
           Moriah Young
         </h1>
+        <SocialLinks className="w-full text-3xl flex gap-8 text-rose-700 my-8 pl-2" />
         <p className="mt-6 text-lg leading-8 text-gray-600">
           Welcome to the virtual home of a woman who thrives off the
           entertainment of others. Moriah Young is a voice over artist and on
@@ -15,23 +19,16 @@ export default function Home() {
           (browse) and see what she’s all about!
         </p>
         <div className="mt-10 flex items-center gap-x-6">
-          <a
-            href="/voice"
-            className="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
-          >
-            Voice Work
-          </a>
-          <a
-            href="/oncamera"
-            className="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
-          >
-            On-Camera Work
-          </a>
+          <HomeButton text="Voice Work" link="/voice" />
+          <HomeButton text="On-Camera Work" link="/oncamera" />
         </div>
       </div>
       <div className="p-8 lg:p-0 h-full">
-        <img
-          className="shadow-lg lg:object-cover h-full"
+        <motion.img
+          initial={{ opacity: 0, x: 200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="shadow-xl lg:object-cover h-full"
           src={headshot}
           alt="Headshot"
         />

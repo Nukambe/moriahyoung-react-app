@@ -1,15 +1,18 @@
 import { useState, useRef, useEffect } from "react";
 import {
-  PlayIcon,
-  ArrowUturnLeftIcon,
-  ArrowUturnRightIcon,
+  PlayCircleIcon,
   SpeakerXMarkIcon,
   SpeakerWaveIcon,
-  PauseIcon,
+  PauseCircleIcon,
+  ForwardIcon,
+  BackwardIcon,
 } from "@heroicons/react/24/solid";
+import AudioButton from "./audioButton";
 
-export default function AudioPlayer({ name, src }) {
+export default function AudioPlayer({ name, src, skipTrack }) {
   const [mute, setMute] = useState(false);
+  const [mutedVolume, setMutedVolume] = useState(30);
+  const [volume, setVolume] = useState(30);
   const [playing, setPlaying] = useState(false);
   const [position, setPosition] = useState(0);
   const audio = useRef(new Audio(src));
@@ -24,22 +27,17 @@ export default function AudioPlayer({ name, src }) {
     setPlaying(false);
   }
 
-  function muteAudio(shouldMute) {
-    audio.current.muted = shouldMute;
-    setMute(shouldMute);
+  function muteAudio() {
+    audio.current.muted = true;
+    setMutedVolume(volume);
+    setVolume(0);
+    setMute(true);
   }
 
-  function skipAudio(length) {
-    const newPosition = audio.current.currentTime + length;
-    if (newPosition < 0) audio.current.currentTime = 0;
-    if (newPosition > audio.current.duration) {
-      audio.current.currentTime = audio.current.duration;
-    } else {
-      audio.current.currentTime = newPosition;
-    }
-    setPosition(
-      Math.floor((audio.current.currentTime / audio.current.duration) * 100)
-    );
+  function unMuteAudio(restoreVolume) {
+    setVolume(restoreVolume);
+    audio.current.muted = false;
+    setMute(false);
   }
 
   useEffect(() => {
@@ -67,46 +65,68 @@ export default function AudioPlayer({ name, src }) {
     };
   }, [playing]);
 
+  useEffect(() => {
+    if (mute && volume > 0) {
+      unMuteAudio(volume);
+    }
+    audio.current.volume = volume / 100;
+  }, [volume, mute]);
+
   return (
-    <figure className="flex flex-col items-center gap-6 bg-rose-800 px-4 py-4 shadow shadow-rose-200/80 ring-1 ring-rose-900/5 backdrop-blur-sm md:px-6 rounded-lg text-white max-w-2xl">
-      <figcaption className="text-left w-full text-lg font-medium">
+    <figure
+      style={{ minWidth: "300px" }}
+      className="flex flex-col items-center gap-6 bg-rose-800 px-4 py-4 shadow-2xl ring-1 ring-rose-900/5 backdrop-blur-sm md:px-6 rounded-lg text-white max-w-2xl"
+    >
+      <figcaption className="text-center w-full text-5xl font-bold py-12">
         {name}
       </figcaption>
-      <div className="flex gap-6 w-full">
-        <div className="flex flex-none items-center gap-4">
-          <button onClick={() => skipAudio(-10)}>
-            <ArrowUturnLeftIcon className="w-8" />
-          </button>
+      <div className="w-full">
+        <div className="flex flex-none justify-around items-center gap-4">
+          <AudioButton onClick={() => skipTrack(false)}>
+            <BackwardIcon className="w-12" />
+          </AudioButton>
           {!playing ? (
-            <button onClick={() => playAudio()}>
-              <PlayIcon className="w-8" />
-            </button>
+            <AudioButton onClick={() => playAudio()}>
+              <PlayCircleIcon className="w-16" />
+            </AudioButton>
           ) : (
-            <button onClick={() => pauseAudio()}>
-              <PauseIcon className="w-8" />
-            </button>
+            <AudioButton onClick={() => pauseAudio()}>
+              <PauseCircleIcon className="w-16" />
+            </AudioButton>
           )}
-          <button onClick={() => skipAudio(10)}>
-            <ArrowUturnRightIcon className="w-8" />
-          </button>
+          <AudioButton onClick={() => skipTrack(true)}>
+            <ForwardIcon className="w-12" />
+          </AudioButton>
         </div>
-        <div className="w-full h-8 flex items-center relative">
-          <div className="w-full h-4 bg-rose-600 rounded-md" />
+        <div className="w-full h-4 flex items-center relative my-4">
+          <div className="w-full h-full bg-gray-200" />
           <div
+            className="h-full w-full bg-rose-500 absolute transition-all"
+            style={{ width: `${position}%` }}
+          />
+          {/* <div
             className="h-6 w-2 bg-rose-950 rounded-md absolute transition-all"
             style={{ marginLeft: `${position}%` }}
-          />
+          /> */}
         </div>
         <div className="flex items-center gap-4">
-          {mute ? (
-            <button onClick={() => muteAudio(false)}>
+          {mute || volume < 1 ? (
+            <AudioButton onClick={() => unMuteAudio(mutedVolume)}>
               <SpeakerXMarkIcon className="w-8" />
-            </button>
+            </AudioButton>
           ) : (
-            <button onClick={() => muteAudio(true)}>
+            <AudioButton onClick={() => muteAudio(true)}>
               <SpeakerWaveIcon className="w-8" />
-            </button>
+            </AudioButton>
           )}
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={volume}
+            onChange={(e) => setVolume(e.target.value)}
+            className="w-full"
+          />
         </div>
       </div>
     </figure>
