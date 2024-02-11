@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# https://moriahyoung.com/: Actress Portfolio Site
+Welcome to the official repository for Moriah Young's Portfolio Site - a dynamic, visually appealing website designed to showcase the actress's work, achievements, and talents. Built with React, Tailwind CSS, and Framer Motion, this site offers an interactive and immersive user experience, featuring a modern design aesthetic and smooth animations.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+Biography Section: Learn about the actress's journey, milestones, and personal interests.
+Responsive Design: Enjoy a seamless experience on any device, thanks to Tailwind CSS's utility-first approach.
+Smooth Animations: Framer Motion adds a layer of polish with subtle animations, enhancing the overall feel of the portfolio.
+Contact Form: Easy-to-use contact form for inquiries, bookings, or messages to the actress.
+## Preview
+![Screenshot 2024-02-11 105539](https://github.com/Nukambe/moriahyoung-react-app/assets/19686923/024b6687-fd67-468d-9a0c-16d38fccd545)
+![Screenshot 2024-02-11 105707](https://github.com/Nukambe/moriahyoung-react-app/assets/19686923/b16cee9a-4fc9-4c3e-a4da-7fdb3ea0b06b)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Getting Started
+To get a local copy up and running, follow these simple steps.
 
-### `npm start`
+### Prerequisites
+Ensure you have Node.js installed on your machine.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation
+1. Clone the repo
+```sh
+git clone https://github.com/Nukambe/moriahyoung-react-app.git
+```
+2. Install NPM packages
+```sh
+npm install
+```
+3. Start the development server
+```sh
+npm start
+```
+4. Open http://localhost:3000 to view it in the browser.
+## Built With
+- React - A JavaScript library for building user interfaces.
+- Tailwind CSS - A utility-first CSS framework for rapidly building custom designs.
+- Framer Motion - A library for React to power flexible animations.
+## Links
+- Project Link: https://github.com/Nukambe/moriahyoung-react-app
+- Live Website: https://moriahyoung.com/
