@@ -29,7 +29,7 @@ const socials = [
 ];
 
 export default function SocialLinks({
-  className = "mx-auto w-96 text-4xl flex justify-evenly text-rose-800",
+  className = "mx-auto w-96 text-4xl flex justify-evenly text-rose-800 p-0",
   size = 48,
 }) {
   return (
