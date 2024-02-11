@@ -78,9 +78,9 @@ export default function Voice() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: -200 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 200 }}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
+              animate={{ opacity: 1, x: 0, transition: { delay: index * 0.1 } }}
+              exit={{ opacity: 0, x: 200, transition: { delay: index * 0.1 } }}
+              transition={{ duration: 0.2 }}
               className="shadow-md"
             >
               <button
