@@ -73,8 +73,9 @@ export default function AudioPlayer({ name, src, skipTrack }) {
   }, [volume, mute]);
 
   useEffect(() => { // kill audio when component unmounts
+    const audioElement = audio.current;
     return () => {
-      audio.current.pause();
+      audioElement.pause();
     };
   }, []);
 
