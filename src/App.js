@@ -16,7 +16,6 @@ import "./App.css";
 
 function App() {
   const location = useLocation();
-  console.log(location);
 
   return (
     <div className="flex h-full flex-col md:flex-row">

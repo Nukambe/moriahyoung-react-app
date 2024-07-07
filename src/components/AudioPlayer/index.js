@@ -72,6 +72,12 @@ export default function AudioPlayer({ name, src, skipTrack }) {
     audio.current.volume = volume / 100;
   }, [volume, mute]);
 
+  useEffect(() => { // kill audio when component unmounts
+    return () => {
+      audio.current.pause();
+    };
+  }, []);
+
   return (
     <figure
       style={{ minWidth: "300px" }}
