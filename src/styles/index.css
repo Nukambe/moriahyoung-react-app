@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens
+   A cinematic, editorial palette: warm ink, bone-white type, and a
+   soft antique-gold accent that carries the original rose warmth.
+------------------------------------------------------------------- */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  --color-ink-950: #0a0708;
+  --color-ink-900: #110c0e;
+  --color-ink-850: #171112;
+  --color-ink-800: #1f1719;
+  --color-ink-700: #2b2124;
+  --color-ink-600: #3b2e31;
+
+  --color-bone-50: #fbf8f5;
+  --color-bone-100: #f3ece5;
+  --color-bone-200: #e4d9cd;
+  --color-bone-300: #c9baab;
+  --color-bone-400: #a3927f;
+
+  --color-gold-200: #f0dcbc;
+  --color-gold-300: #e0c396;
+  --color-gold-400: #cfa871;
+  --color-gold-500: #b98d55;
+  --color-gold-600: #946d3d;
+
+  --color-blush-400: #d69a92;
+  --color-blush-500: #bd7c76;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink-900);
+    color: var(--color-bone-100);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-400);
+    color: var(--color-ink-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-400);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Slim, on-brand scrollbar */
+  * {
+    scrollbar-color: var(--color-ink-600) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Components
+------------------------------------------------------------------- */
+@layer components {
+  /* Small caps label used above section headings */
+  .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold-400);
+    font-weight: 500;
+  }
+
+  /* Thin hairline divider */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-gold-400) 55%, transparent),
+      transparent
+    );
+  }
+
+  .prose-editorial p {
+    color: var(--color-bone-300);
+    line-height: 1.9;
+  }
+
+  .prose-editorial p + p {
+    margin-top: 1.5rem;
+  }
+
+  /* Range input styled for the audio player */
+  .range-gold {
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  /* `--range-progress` (0–100) paints the elapsed portion of the track */
+  .range-gold::-webkit-slider-runnable-track {
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--color-gold-400) calc(var(--range-progress, 0) * 1%),
+      color-mix(in srgb, var(--color-bone-300) 25%, transparent)
+        calc(var(--range-progress, 0) * 1%)
+    );
+  }
+
+  .range-gold::-moz-range-track {
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--color-gold-400) calc(var(--range-progress, 0) * 1%),
+      color-mix(in srgb, var(--color-bone-300) 25%, transparent)
+        calc(var(--range-progress, 0) * 1%)
+    );
+  }
+
+  .range-gold::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    margin-top: -4.5px;
+    border-radius: 999px;
+    background: var(--color-gold-300);
+    transition: transform 150ms var(--ease-soft);
+  }
+
+  .range-gold::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-gold-300);
+  }
+
+  .range-gold:hover::-webkit-slider-thumb {
+    transform: scale(1.25);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Utilities
+------------------------------------------------------------------- */
+@utility text-balance-pretty {
+  text-wrap: pretty;
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* Respect reduced-motion preferences everywhere */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

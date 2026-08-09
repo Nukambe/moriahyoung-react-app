@@ -1,0 +1,11 @@
+# Vite 8 (and its rolldown bundler) require Node ^20.19 || >=22.12. Netlify
+# still defaults older sites to Node 18, so pin the runtime here.
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback so client-side routes resolve on refresh / direct hits.
+# Replaces the old public/_redirects file so build config lives in one place.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
