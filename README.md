@@ -83,6 +83,12 @@ Release notes live in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Deployment
 
-`npm run build` outputs a static bundle to `build/`. `public/_redirects` keeps
-client-side routing working on Netlify-style hosts; any other host needs an
-equivalent SPA fallback to `index.html`.
+`npm run build` outputs a static bundle to `build/`.
+
+The build requires **Node `^20.19` or `>=22.12`** (Vite 8's floor). `.nvmrc`
+and `netlify.toml` both pin Node 22 — other CI providers may need the same
+pin, since several still default to Node 18.
+
+`netlify.toml` also declares the SPA fallback that keeps client-side routes
+working on refresh. Hosts other than Netlify need an equivalent rewrite of all
+paths to `index.html`.

@@ -35,6 +35,9 @@ A full visual redesign of the portfolio plus a move off Create React App.
 - Vitest test suite covering routing, the audio player, and contact-form
   validation.
 - ESLint 9 flat config (`npm run lint`).
+- `netlify.toml` pinning the build to Node 22 and declaring the SPA fallback,
+  plus a matching `.nvmrc` and an `engines.node` field. Vite 8 requires Node
+  `^20.19 || >=22.12`, and Netlify still defaults older sites to Node 18.
 - Per-page SEO titles and descriptions using React 19's native document
   metadata hoisting.
 
@@ -60,6 +63,8 @@ A full visual redesign of the portfolio plus a move off Create React App.
 - `react-helmet` (React 19 hoists `<title>` and `<meta>` natively),
   `react-responsive` (Tailwind breakpoints), `@headlessui/react` (unused), and
   `validator` (replaced by a small local validator).
+- `public/_redirects`, superseded by the redirect rule in `netlify.toml` so
+  the build configuration lives in one place.
 - Unused legacy components: the rose sidebar/hamburger navigation, the
   duplicated mobile home hero, `aboutSection`, `navbar`, `navPopOut`, and
   `myNavLink`.
