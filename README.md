@@ -1,40 +1,84 @@
-# https://moriahyoung.com/: Actress Portfolio Site
-Welcome to the official repository for Moriah Young's Portfolio Site - a dynamic, visually appealing website designed to showcase the actress's work, achievements, and talents. Built with React, Tailwind CSS, and Framer Motion, this site offers an interactive and immersive user experience, featuring a modern design aesthetic and smooth animations.
+# moriahyoung.com — Actress Portfolio
 
-## Features
-Biography Section: Learn about the actress's journey, milestones, and personal interests.
-Responsive Design: Enjoy a seamless experience on any device, thanks to Tailwind CSS's utility-first approach.
-Smooth Animations: Framer Motion adds a layer of polish with subtle animations, enhancing the overall feel of the portfolio.
-Contact Form: Easy-to-use contact form for inquiries, bookings, or messages to the actress.
-## Preview
-![Screenshot 2024-02-11 105539](https://github.com/Nukambe/moriahyoung-react-app/assets/19686923/024b6687-fd67-468d-9a0c-16d38fccd545)
-![Screenshot 2024-02-11 105707](https://github.com/Nukambe/moriahyoung-react-app/assets/19686923/b16cee9a-4fc9-4c3e-a4da-7fdb3ea0b06b)
+The portfolio site for **Moriah Young**, a voice over artist and on-camera
+actress. A dark, editorial single-page app covering her biography, headshot
+gallery, voice demos, on-camera reels and booking enquiries.
 
+Live site: https://moriahyoung.com/
 
-## Getting Started
-To get a local copy up and running, follow these simple steps.
+## Stack
 
-### Prerequisites
-Ensure you have Node.js installed on your machine.
+| | |
+| --- | --- |
+| Framework | React 19 |
+| Build | Vite 8 |
+| Routing | React Router 7 |
+| Styling | Tailwind CSS 4 (CSS-first `@theme` tokens) |
+| Motion | Motion (framer-motion's successor) |
+| Mail | EmailJS |
+| Tests | Vitest + Testing Library |
+| Lint | ESLint 9 (flat config) |
 
-### Installation
-1. Clone the repo
-```sh
-git clone https://github.com/Nukambe/moriahyoung-react-app.git
-```
-2. Install NPM packages
+## Getting started
+
 ```sh
 npm install
+npm run dev      # http://localhost:3000
 ```
-3. Start the development server
-```sh
-npm start
+
+### Scripts
+
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` / `npm start` | Vite dev server with HMR |
+| `npm run build` | Production bundle into `build/` |
+| `npm run preview` | Serve the production build locally |
+| `npm test` | Run the Vitest suite once |
+| `npm run test:watch` | Vitest in watch mode |
+| `npm run lint` | ESLint over the project |
+| `npm run images:optimize` | Regenerate responsive WebP derivatives |
+
+## Project layout
+
 ```
-4. Open http://localhost:3000 to view it in the browser.
-## Built With
-- React - A JavaScript library for building user interfaces.
-- Tailwind CSS - A utility-first CSS framework for rapidly building custom designs.
-- Framer Motion - A library for React to power flexible animations.
-## Links
-- Project Link: https://github.com/Nukambe/moriahyoung-react-app
-- Live Website: https://moriahyoung.com/
+src/
+  assets/content/    full-resolution photography (source of truth)
+  assets/optimized/  generated WebP derivatives that ship to the browser
+  components/
+    audio/           sticky transport bar for the voice demos
+    contact/         form field primitives
+    layout/          nav bar, mobile drawer, footer, scroll restoration
+    ui/              buttons, page header, reveal-on-scroll, icons, <Img>
+  data/site.js       all copy, navigation, socials, demos and reels
+  lib/               image resolution + contact-form validation
+  pages/             one component per route
+  styles/index.css   Tailwind theme tokens, base styles, components
+```
+
+Site copy, demo tracks, reels and social links all live in `src/data/site.js` —
+edit that file rather than the page components to update content.
+
+## Images
+
+Source photography is multi-megabyte, so `src/assets/content` is never served
+directly. `npm run images:optimize` uses sharp to emit 800w and 1600w WebP
+derivatives into `src/assets/optimized` (~35 MB of originals become ~1.5 MB),
+and the `<Img>` component wires them up as a `srcSet`. After adding a photo,
+register it in `scripts/optimize-images.mjs` and re-run the script.
+
+## Contact form
+
+The form posts through EmailJS. The bundled public identifiers are used by
+default; override them with a `.env` file if the account changes:
+
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+```
+
+## Deployment
+
+`npm run build` outputs a static bundle to `build/`. `public/_redirects` keeps
+client-side routing working on Netlify-style hosts; any other host needs an
+equivalent SPA fallback to `index.html`.
