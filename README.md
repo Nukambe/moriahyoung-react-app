@@ -77,6 +77,10 @@ VITE_EMAILJS_TEMPLATE_ID=...
 VITE_EMAILJS_PUBLIC_KEY=...
 ```
 
+## Changelog
+
+Release notes live in [CHANGELOG.md](./CHANGELOG.md).
+
 ## Deployment
 
 `npm run build` outputs a static bundle to `build/`. `public/_redirects` keeps
